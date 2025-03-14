@@ -38,9 +38,8 @@ yarn-error.*
 node_modules/
 *.log
 dist/
-build/
-android/
-ios/
+
+
 .idea/
 .vscode/
 .DS_Store
