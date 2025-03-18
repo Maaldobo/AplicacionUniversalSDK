@@ -1,8 +1,6 @@
 import { StyleSheet, Platform, StatusBar } from 'react-native';
 import colors from './colors';
 
-//const STATUSBAR_HEIGHT = Platform.OS === 'android' ? StatusBar.currentHeight || 24 : 0;
-//const HEADER_HEIGHT = 56; // Tamaño estándar para headers en Material Design
 
 const headerStyles = StyleSheet.create({
   header: {
