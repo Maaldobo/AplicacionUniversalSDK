@@ -1,22 +1,19 @@
 import React from 'react';
-import { TouchableOpacity, StyleSheet, Text as RNText } from 'react-native';
-import { colors } from '../../styles/colors';
+import { TouchableOpacity, Text as RNText } from 'react-native';
+import styles from '../styles/atomStyles';
 
-type Props = {
+type ButtonProps = {
   title: string;
   onPress: () => void;
   variant?: 'primary' | 'secondary';
 };
 
-const RNButton: React.FC<Props> = ({ title, onPress, variant = 'primary' }) => {
-  // Botón reutilizable con variantes de estilo (primario y secundario)
+const RNButton: React.FC<ButtonProps> = ({ title, onPress, variant = 'primary' }) => {
   return (
     <TouchableOpacity style={[styles.button, styles[variant]]} onPress={onPress}>
       <RNText style={styles.text}>{title}</RNText>
     </TouchableOpacity>
   );
 };
-
-
 
 export default RNButton;
