@@ -1,5 +1,7 @@
 import React from 'react';
 import { Image as NativeImage, ImageStyle, StyleProp, ImageSourcePropType } from 'react-native';
+import atomsStyles from '../styles/atomStyles';
+
 
 type Props = {
   source: ImageSourcePropType; // Acepta tanto { uri } como require()
@@ -10,7 +12,7 @@ const RNImage: React.FC<Props> = ({ source, style }) => {
   return (
     <NativeImage
       source={source}
-      style={[{ width: '100%', height: 200 }, style]} // Estilo por defecto + custom
+      style={[atomsStyles.image, style]} // Usa estilos predefinidos + custom styles
       resizeMode="cover" // Ajuste de imagen
     />
   );

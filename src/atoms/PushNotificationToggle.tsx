@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text as RNText, Switch, StyleSheet } from 'react-native';
+import styles from '../styles/atomStyles';
 
 type Props = {
   initialValue?: boolean;
@@ -26,19 +27,5 @@ const PushNotificationToggle: React.FC<Props> = ({ initialValue = false, onToggl
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    padding: 10,
-    marginVertical: 8,
-    backgroundColor: '#fff',
-    borderRadius: 5,
-  },
-  label: {
-    fontSize: 16,
-  },
-});
 
 export default PushNotificationToggle;

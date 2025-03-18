@@ -1,6 +1,7 @@
 import React from 'react';
 import { TouchableOpacity, StyleSheet, Share } from 'react-native';
-import Text from './Text';
+import RNTextComponent from './RNText';
+import atomsStyles from '../styles/atomStyles';
 
 type Props = {
   url: string;
@@ -20,24 +21,12 @@ const SocialSharing: React.FC<Props> = ({ url, title }) => {
   };
 
   return (
-    <TouchableOpacity style={styles.button} onPress={onShare}>
-      <Text variant="caption" style={styles.buttonText}>Compartir</Text>
+    <TouchableOpacity style={atomsStyles.button} onPress={onShare}>
+      <RNTextComponent variant="caption" style={atomsStyles.buttonText}>Compartir</RNTextComponent>
     </TouchableOpacity>
   );
 };
 
-const styles = StyleSheet.create({
-  button: {
-    padding: 10,
-    backgroundColor: '#1A73E8',
-    borderRadius: 5,
-    alignItems: 'center',
-    marginVertical: 8,
-  },
-  buttonText: {
-    color: '#fff',
-    fontWeight: 'bold',
-  },
-});
+
 
 export default SocialSharing;

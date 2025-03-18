@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { TouchableOpacity, StyleSheet, Text as RNText } from 'react-native';
+import styles from '../styles/atomStyles';
 
 type Props = {
   onToggle?: (bookmarked: boolean) => void;
@@ -22,14 +23,5 @@ const BookmarkButton: React.FC<Props> = ({ onToggle }) => {
   );
 };
 
-const styles = StyleSheet.create({
-  button: {
-    padding: 10,
-  },
-  text: {
-    fontSize: 24,
-    color: '#FFA500',
-  },
-});
 
 export default BookmarkButton;

@@ -1,7 +1,7 @@
 import React from 'react';
 import { TextInput, StyleSheet, TextInputProps } from 'react-native';
-import { colors } from '../../styles/colors';
-import { spacing } from '../../styles/spacing';
+
+import styles from '../styles/atomStyles';
 
 const RNInput: React.FC<TextInputProps> = (props) => {
   // Input de texto reutilizable con estilos base
