@@ -13,7 +13,8 @@ type LayoutProps = {
       <>
         <SafeAreaView style={layoutStyles.safeContainer}>
           <StatusBar barStyle="dark-content" backgroundColor="transparent" translucent />
-          <Header onPressHome={() => console.log('Ir a Home')} />
+          {/* <Header onPressHome={() => console.log('Ir a Home')} /> */}
+          <Header />
           <View style={layoutStyles.content}>{children}</View>
         </SafeAreaView>
       </>

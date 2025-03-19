@@ -1,0 +1,1148 @@
+
+=====================================
+Archivo: C:\Users\mariodominguez\Desktop\APP\AppAUniversal\.expo\README.md
+=====================================
+> Why do I have a folder named ".expo" in my project?
+The ".expo" folder is created when an Expo project is started using "expo start" command.
+> What do the files contain?
+- "devices.json": contains information about devices that have recently opened this project. This is used to populate the "Development sessions" list in your development builds.
+- "settings.json": contains the server configuration that is used to serve the application manifest.
+> Should I commit the ".expo" folder?
+No, you should not share the ".expo" folder. It does not contain any information that is relevant for other developers working on the project, it is specific to your machine.
+Upon project creation, the ".expo" folder is already added to your ".gitignore" file.
+
+
+
+=====================================
+Archivo: C:\Users\mariodominguez\Desktop\APP\AppAUniversal\App.tsx
+=====================================
+import React from 'react';
+import { StatusBar } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import Layout from './src/layouts/Layouts';
+import HomeScreen from './src/screens/HomeScreen';
+import NewsScreen from './src/screens/NeswScreen';
+
+const Stack = createStackNavigator();
+
+const App: React.FC = () => {
+  return (
+    <>
+      <NavigationContainer>
+        <Layout>
+          <Stack.Navigator screenOptions={{ headerShown: false }}>
+            <Stack.Screen name="Home" component={HomeScreen} />
+            <Stack.Screen name="News" component={NewsScreen} />
+          </Stack.Navigator>
+        </Layout>
+      </NavigationContainer>
+    </>
+  );
+};
+
+export default App;
+
+
+
+=====================================
+Archivo: C:\Users\mariodominguez\Desktop\APP\AppAUniversal\extraercodigo.js
+=====================================
+const fs = require('fs');
+const path = require('path');
+
+// Archivo de salida
+const OUTPUT_FILE = 'archivos_con_codigo_simplificado.txt';
+
+// Extensiones de archivos de código y texto
+const ALLOWED_EXTENSIONS = [
+    '.js', '.jsx', '.ts', '.tsx', '.md', '.html', 
+    '.css', '.scss', '.yaml', '.yml', 
+    '.php', '.sh', '.rb', '.xml', '.ini', '.env'
+];
+
+// Directorios a excluir (para evitar archivos innecesarios)
+const EXCLUDED_DIRS = ['node_modules','.txt', '.py', '.java', '.git', 'dist', 'build', 'coverage', 'bin', '.json', '.lock', '.idea', '.vscode', 'android', 'ios', 'public', 'assets', 'fonts', 'images', 'videos', 'sounds', 'docs', 'test', 'tests', 'spec', 'specs', 'snapshots', 'migrations', 'seeds', 'logs', 'tmp', 'temp', 'cache', 'data', 'uploads', 'downloads', 'backup', 'backups'];
+
+// Función para verificar si el archivo es binario
+const isBinaryFile = (filePath) => {
+    const buffer = fs.readFileSync(filePath);
+    for (let i = 0; i < buffer.length; i++) {
+        if (buffer[i] === 0) return true; // Si encuentra un byte NULL, es binario
+    }
+    return false;
+};
+
+// Función para recorrer archivos recursivamente
+const getAllFiles = (dir) => {
+    let results = [];
+    const list = fs.readdirSync(dir);
+
+    list.forEach((file) => {
+        const filePath = path.join(dir, file);
+        const stat = fs.statSync(filePath);
+
+        if (stat && stat.isDirectory()) {
+            if (!EXCLUDED_DIRS.includes(file)) {
+                results = results.concat(getAllFiles(filePath));
+            }
+        } else {
+            const ext = path.extname(file);
+            if (ALLOWED_EXTENSIONS.includes(ext) && !isBinaryFile(filePath)) {
+                results.push(filePath);
+            }
+        }
+    });
+
+    return results;
+};
+
+// Función para extraer código y guardarlo en un archivo
+const extractCode = () => {
+    const files = getAllFiles(process.cwd()); // Carpeta donde se ejecuta el script
+
+    fs.writeFileSync(OUTPUT_FILE, ''); // Reiniciar archivo
+
+    files.forEach((file) => {
+        try {
+            const content = fs.readFileSync(file, 'utf8'); // Asegura lectura en UTF-8
+
+            const fileHeader = `\n=====================================\nArchivo: ${file}\n=====================================\n`;
+
+            fs.appendFileSync(OUTPUT_FILE, fileHeader);
+            fs.appendFileSync(OUTPUT_FILE, content);
+            fs.appendFileSync(OUTPUT_FILE, '\n\n');
+        } catch (error) {
+            console.warn(`⚠️ No se pudo leer: ${file}`);
+        }
+    });
+
+    console.log(`✅ Código extraído en "${OUTPUT_FILE}"`);
+};
+
+// Ejecutar el script
+extractCode();
+
+
+
+=====================================
+Archivo: C:\Users\mariodominguez\Desktop\APP\AppAUniversal\index.js
+=====================================
+import { registerRootComponent } from 'expo';
+
+import App from './App';
+
+// registerRootComponent calls AppRegistry.registerComponent('main', () => App);
+// It also ensures that whether you load the app in Expo Go or in a native build,
+// the environment is set up appropriately
+registerRootComponent(App);
+
+
+
+=====================================
+Archivo: C:\Users\mariodominguez\Desktop\APP\AppAUniversal\src\atoms\BookmarkButton.tsx
+=====================================
+import React, { useState } from 'react';
+import { TouchableOpacity, StyleSheet, Text as RNText } from 'react-native';
+import styles from '../styles/atomStyles';
+
+type Props = {
+  onToggle?: (bookmarked: boolean) => void;
+};
+
+const BookmarkButton: React.FC<Props> = ({ onToggle }) => {
+  // Botón para marcar o desmarcar un artículo como favorito
+  const [bookmarked, setBookmarked] = useState(false);
+
+  const toggleBookmark = () => {
+    const newState = !bookmarked;
+    setBookmarked(newState);
+    onToggle && onToggle(newState);
+  };
+
+  return (
+    <TouchableOpacity onPress={toggleBookmark} style={styles.button}>
+      <RNText style={styles.text}>{bookmarked ? '★' : '☆'}</RNText>
+    </TouchableOpacity>
+  );
+};
+
+
+export default BookmarkButton;
+
+
+
+=====================================
+Archivo: C:\Users\mariodominguez\Desktop\APP\AppAUniversal\src\atoms\PushNotificationToggle.tsx
+=====================================
+import React, { useState } from 'react';
+import { View, Text as RNText, Switch, StyleSheet } from 'react-native';
+import styles from '../styles/atomStyles';
+
+type Props = {
+  initialValue?: boolean;
+  onToggle?: (enabled: boolean) => void;
+};
+
+const PushNotificationToggle: React.FC<Props> = ({ initialValue = false, onToggle }) => {
+  // Toggle para activar/desactivar notificaciones push
+  const [isEnabled, setIsEnabled] = useState(initialValue);
+
+  const toggleSwitch = () => {
+    setIsEnabled(prev => {
+      const newValue = !prev;
+      onToggle && onToggle(newValue);
+      return newValue;
+    });
+  };
+
+  return (
+    <View style={styles.container}>
+      <RNText style={styles.label}>Notificaciones Push</RNText>
+      <Switch value={isEnabled} onValueChange={toggleSwitch} />
+    </View>
+  );
+};
+
+
+export default PushNotificationToggle;
+
+
+
+=====================================
+Archivo: C:\Users\mariodominguez\Desktop\APP\AppAUniversal\src\atoms\RNButton.tsx
+=====================================
+import React from 'react';
+import { TouchableOpacity, Text as RNText } from 'react-native';
+import styles from '../styles/atomStyles';
+
+type ButtonProps = {
+  title: string;
+  onPress: () => void;
+  variant?: 'primary' | 'secondary';
+};
+
+const RNButton: React.FC<ButtonProps> = ({ title, onPress, variant = 'primary' }) => {
+  return (
+    <TouchableOpacity style={[styles.button, styles[variant]]} onPress={onPress}>
+      <RNText style={styles.text}>{title}</RNText>
+    </TouchableOpacity>
+  );
+};
+
+export default RNButton;
+
+
+
+=====================================
+Archivo: C:\Users\mariodominguez\Desktop\APP\AppAUniversal\src\atoms\RNImage.tsx
+=====================================
+import React from 'react';
+import { Image as NativeImage, ImageStyle, StyleProp, ImageSourcePropType } from 'react-native';
+import atomsStyles from '../styles/atomStyles';
+
+
+type Props = {
+  source: ImageSourcePropType; // Acepta tanto { uri } como require()
+  style?: StyleProp<ImageStyle>; // Permite arrays y condicionales
+};
+
+const RNImage: React.FC<Props> = ({ source, style }) => {
+  return (
+    <NativeImage
+      source={source}
+      style={[atomsStyles.image, style]} // Usa estilos predefinidos + custom styles
+      resizeMode="cover" // Ajuste de imagen
+    />
+  );
+};
+
+export default RNImage;
+
+
+=====================================
+Archivo: C:\Users\mariodominguez\Desktop\APP\AppAUniversal\src\atoms\RNInput.tsx
+=====================================
+import React from 'react';
+import { TextInput, StyleSheet, TextInputProps } from 'react-native';
+
+import styles from '../styles/atomStyles';
+
+const RNInput: React.FC<TextInputProps> = (props) => {
+  // Input de texto reutilizable con estilos base
+  return <TextInput style={[styles.input, props.style]} {...props} />;
+};
+
+
+
+export default RNInput;
+
+
+
+=====================================
+Archivo: C:\Users\mariodominguez\Desktop\APP\AppAUniversal\src\atoms\RNLoadingSpinner.tsx
+=====================================
+import React from 'react';
+import { ActivityIndicator } from 'react-native';
+import atomsStyles from '../styles/atomStyles';
+import colors from '../styles/colors';
+
+
+const RNLoadingSpinner: React.FC = () => {
+  return <ActivityIndicator style={atomsStyles.spinner} size="large" color={colors.primary} />;
+};
+
+export default RNLoadingSpinner;
+
+
+
+=====================================
+Archivo: C:\Users\mariodominguez\Desktop\APP\AppAUniversal\src\atoms\RNText.tsx
+=====================================
+import React from 'react';
+import { Text as RNText, TextStyle } from 'react-native';
+import colors from '../styles/colors';
+import typography from '../styles/typography';
+
+type TextProps = {
+  children: React.ReactNode;
+  variant?: 'title' | 'subtitle' | 'body' | 'caption';
+  style?: TextStyle;
+};
+
+const RNTextComponent: React.FC<TextProps> = ({ children, variant = 'body', style }) => {
+  return (
+    <RNText style={[typography[variant], { color: colors.textPrimary }, style]}>
+      {children}
+    </RNText>
+  );
+};
+
+export default RNTextComponent;
+
+
+
+=====================================
+Archivo: C:\Users\mariodominguez\Desktop\APP\AppAUniversal\src\atoms\SocialSharing.tsx
+=====================================
+import React from 'react';
+import { TouchableOpacity, StyleSheet, Share } from 'react-native';
+import RNTextComponent from './RNText';
+import atomsStyles from '../styles/atomStyles';
+
+type Props = {
+  url: string;
+  title?: string;
+};
+
+const SocialSharing: React.FC<Props> = ({ url, title }) => {
+
+  const onShare = async () => {
+    try {
+      await Share.share({
+        message: title ? `${title} - ${url}` : url,
+      });
+    } catch (error) {
+      console.error('Error al compartir:', error);
+    }
+  };
+
+  return (
+    <TouchableOpacity style={atomsStyles.button} onPress={onShare}>
+      <RNTextComponent variant="caption" style={atomsStyles.buttonText}>Compartir</RNTextComponent>
+    </TouchableOpacity>
+  );
+};
+
+
+
+export default SocialSharing;
+
+
+
+=====================================
+Archivo: C:\Users\mariodominguez\Desktop\APP\AppAUniversal\src\components\header.tsx
+=====================================
+import React from 'react';
+import { View, TouchableOpacity } from 'react-native';
+import RNImage from '../atoms/RNImage';
+import RNText from '../atoms/RNText';
+import headerStyles from '../styles/headerStyles';
+import { useNavigation } from '@react-navigation/native';
+
+
+const Header: React.FC = () => {
+  const navigation = useNavigation(); // Hook para acceder a la navegación
+
+  return (
+    <View style={headerStyles.header}>
+      
+      {/* Menú Hamburguesa */}
+      <View style={headerStyles.leftContainer}>
+        <TouchableOpacity style={headerStyles.iconButton} onPress={() => console.log('Menú')}>
+          <RNText variant="title">☰</RNText>
+        </TouchableOpacity>
+      </View>
+
+      {/* Logo Central - Al tocarlo, navega a Home */}
+      <View style={headerStyles.centerContainer}>
+        <TouchableOpacity onPress={() => navigation.navigate('Home')}>
+          <RNImage source={require('../../assets/eluniversal.png')} style={headerStyles.logo} />
+        </TouchableOpacity>
+      </View>
+
+      {/* Íconos de la derecha */}
+      <View style={headerStyles.rightContainer}>
+        <TouchableOpacity style={headerStyles.iconButton} onPress={() => console.log('Buscar')}>
+          <RNText variant="title">🔍</RNText>
+        </TouchableOpacity>
+
+        <TouchableOpacity style={headerStyles.iconButton} onPress={() => console.log('Guardados')}>
+          <RNText variant="title">⭐</RNText>
+        </TouchableOpacity>
+      </View>
+      
+    </View>
+  );
+};
+
+export default Header;
+
+
+=====================================
+Archivo: C:\Users\mariodominguez\Desktop\APP\AppAUniversal\src\layouts\Layouts.tsx
+=====================================
+import React, { ReactNode } from 'react';
+import { SafeAreaView, View, StatusBar } from 'react-native';
+import layoutStyles from '../styles/layoutStyles';
+import Header from '../components/header';
+
+
+type LayoutProps = {
+    children: ReactNode;
+  };
+  
+  const Layout: React.FC<LayoutProps> = ({ children }) => {
+    return (
+      <>
+        <SafeAreaView style={layoutStyles.safeContainer}>
+          <StatusBar barStyle="dark-content" backgroundColor="transparent" translucent />
+          {/* <Header onPressHome={() => console.log('Ir a Home')} /> */}
+          <Header />
+          <View style={layoutStyles.content}>{children}</View>
+        </SafeAreaView>
+      </>
+    );
+  };
+  
+  export default Layout;
+
+
+=====================================
+Archivo: C:\Users\mariodominguez\Desktop\APP\AppAUniversal\src\molecules\card.tsx
+=====================================
+import React from 'react';
+import { View, TouchableOpacity } from 'react-native';
+import RNImage from '../atoms/RNImage';
+import RNText from '../atoms/RNText';
+import cardStyles from '../styles/cardStyles';
+
+
+type CardProps = {
+  title: string;
+  subtitle?: string;
+  imageSource: any;
+  variant?: 'horizontal' | 'vertical' | 'large';
+  onPress?: () => void;
+};
+
+const Card: React.FC<CardProps> = ({ title, subtitle, imageSource, variant = 'vertical', onPress }) => {
+  return (
+    <TouchableOpacity style={[cardStyles.card, cardStyles[variant]]} onPress={onPress}>
+      {/* Variante Horizontal */}
+      {variant === 'horizontal' && (
+        <>
+          <View style={cardStyles.textContainer}>
+            <RNText variant="title" style={cardStyles.title}>{title}</RNText>
+            {subtitle && <RNText variant="subtitle" style={cardStyles.subtitle}>{subtitle}</RNText>}
+          </View>
+          <RNImage source={imageSource} style={cardStyles.imageHorizontal} />
+        </>
+      )}
+
+      {/* Variante Vertical */}
+      {variant === 'vertical' && (
+        <>
+          <RNImage source={imageSource} style={cardStyles.imageVertical} />
+          <View style={cardStyles.textContainer}>
+            <RNText variant="title" style={cardStyles.title}>{title}</RNText>
+            {subtitle && <RNText variant="subtitle" style={cardStyles.subtitle}>{subtitle}</RNText>}
+          </View>
+        </>
+      )}
+
+      {/* Variante Grande */}
+      {variant === 'large' && (
+        <>
+          <RNImage source={imageSource} style={cardStyles.imageLarge} />
+          <View style={cardStyles.textContainer}>
+            <RNText variant="title" style={cardStyles.title}>{title}</RNText>
+            {subtitle && <RNText variant="subtitle" style={cardStyles.subtitle}>{subtitle}</RNText>}
+          </View>
+        </>
+      )}
+    </TouchableOpacity>
+  );
+};
+
+export default Card;
+
+
+
+=====================================
+Archivo: C:\Users\mariodominguez\Desktop\APP\AppAUniversal\src\molecules\cardList.tsx
+=====================================
+import React, { useRef } from 'react';
+import { FlatList, View, Dimensions } from 'react-native';
+import * as Haptics from 'expo-haptics';
+import Card from './card';
+
+
+const { height } = Dimensions.get('window');
+
+type CardListProps = {
+  data: { id: string; title: string; subtitle?: string; image?: any; isHeader?: boolean }[];
+};
+
+const CardList: React.FC<CardListProps> = ({ data }) => {
+  const flatListRef = useRef<FlatList>(null);
+  const currentIndex = useRef(0);
+
+  const handleScrollEnd = (event: any) => {
+    const index = Math.round(event.nativeEvent.contentOffset.y / height);
+
+    if (index !== currentIndex.current) {
+      currentIndex.current = index;
+      Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light); // Vibración leve
+    }
+
+    // Regresar a la última tarjeta si el usuario sigue desplazándose hacia abajo
+    if (index >= data.length - 1) {
+      setTimeout(() => {
+        flatListRef.current?.scrollToIndex({ index: data.length - 1, animated: true });
+      }, 200);
+    }
+  };
+
+  const renderItem = ({ item }: { item: any }) => (
+    <View style={{ height }}>
+      <Card title={item.title} subtitle={item.subtitle} imageSource={item.image} variant="large" />
+    </View>
+  );
+
+  return (
+    <FlatList
+      ref={flatListRef}
+      data={data}
+      keyExtractor={(item) => item.id}
+      renderItem={renderItem}
+      pagingEnabled
+      snapToAlignment="start"
+      snapToInterval={height}
+      decelerationRate="fast"
+      showsVerticalScrollIndicator={false}
+      onMomentumScrollEnd={handleScrollEnd}
+    />
+  );
+};
+
+export default CardList;
+
+
+
+=====================================
+Archivo: C:\Users\mariodominguez\Desktop\APP\AppAUniversal\src\molecules\Carousel.tsx
+=====================================
+import React, { useRef } from 'react';
+import { FlatList, View, Dimensions } from 'react-native';
+import Video from 'react-native-video';
+import { WebView } from 'react-native-webview';
+import RNImage from '../atoms/RNImage';
+import Card from '../molecules/Card';
+import carouselStyles from '../styles/carouselStyles';
+
+const { width } = Dimensions.get('window');
+
+type CarouselItem = {
+  id: string;
+  type: 'image' | 'video' | 'youtube' | 'card';
+  source?: any;
+  title?: string;
+  subtitle?: string;
+  youtubeId?: string; // ID del video de YouTube
+};
+
+type CarouselProps = {
+  data: CarouselItem[];
+};
+
+const Carousel: React.FC<CarouselProps> = ({ data }) => {
+  const flatListRef = useRef<FlatList>(null);
+
+  const renderItem = ({ item }: { item: CarouselItem }) => {
+    return (
+      <View style={carouselStyles.slide}>
+        {/* Imagen */}
+        {item.type === 'image' && <RNImage source={item.source} style={carouselStyles.image} />}
+
+        {/* Video Local */}
+        {item.type === 'video' && (
+          <Video
+            source={item.source}
+            style={carouselStyles.video}
+            controls
+            resizeMode="cover"
+          />
+        )}
+
+        {/* Video de YouTube */}
+        {item.type === 'youtube' && item.youtubeId && (
+          <WebView
+            style={carouselStyles.video}
+            source={{ uri: `https://www.youtube.com/embed/${item.youtubeId}` }}
+            javaScriptEnabled
+            domStorageEnabled
+          />
+        )}
+
+        {/* Card */}
+        {item.type === 'card' && (
+          <Card title={item.title || ''} subtitle={item.subtitle} imageSource={item.source} variant="large" />
+        )}
+      </View>
+    );
+  };
+
+  return (
+    <FlatList
+      ref={flatListRef}
+      data={data}
+      keyExtractor={(item) => item.id}
+      renderItem={renderItem}
+      horizontal
+      pagingEnabled
+      snapToAlignment="center"
+      snapToInterval={width}
+      decelerationRate="fast"
+      showsHorizontalScrollIndicator={false}
+    />
+  );
+};
+
+export default Carousel;
+
+
+
+=====================================
+Archivo: C:\Users\mariodominguez\Desktop\APP\AppAUniversal\src\screens\CarouselScreen.tsx
+=====================================
+import React from 'react';
+import { SafeAreaView } from 'react-native';
+import Carousel from '../molecules/Carousel';
+
+
+const CarouselScreen: React.FC = () => {
+  const data = [
+    { id: '1', type: 'image', source: require('../../assets/image1.jpg') },
+    { id: '2', type: 'youtube', youtubeId: 'dQw4w9WgXcQ' }, // Video de YouTube
+    { id: '3', type: 'card', title: 'Noticia Importante', subtitle: 'Detalles de la noticia', source: require('../../assets/gris_placeholder.png') },
+    { id: '4', type: 'youtube', youtubeId: '3JZ_D3ELwOQ' }, // Otro video de YouTube
+    { id: '5', type: 'image', source: require('../../assets/image3.jpg') },
+  ];
+
+  return (
+    <SafeAreaView style={{ flex: 1 }}>
+      <Carousel data={data} />
+    </SafeAreaView>
+  );
+};
+
+export default CarouselScreen;
+
+
+
+=====================================
+Archivo: C:\Users\mariodominguez\Desktop\APP\AppAUniversal\src\screens\HomeScreen.tsx
+=====================================
+import React, { useRef } from 'react';
+import { FlatList, View, Dimensions } from 'react-native';
+import * as Haptics from 'expo-haptics'; 
+import atomsStyles from '../styles/atomStyles';
+import { useNavigation } from '@react-navigation/native';
+import RNTextComponent from '../atoms/RNText';
+import RNButton from '../atoms/RNButton';
+import Card from '../molecules/card';
+import CardList from '../molecules/cardList';
+
+const { height } = Dimensions.get('window');
+
+const HomeScreen: React.FC = () => {
+  const navigation = useNavigation();
+
+  const flatListRef = useRef<FlatList>(null);
+  const currentIndex = useRef(0);
+
+  const handleScrollEnd = (event: any) => {
+    const index = Math.round(event.nativeEvent.contentOffset.y / height);
+    if (index !== currentIndex.current) {
+      currentIndex.current = index;
+      Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light); // Vibración leve
+    }
+  };
+
+  const data = [
+    { id: '1', title: 'Noticia 1', subtitle: 'Subtítulo 1', image: require('../../assets/gris_placeholder.png') },
+    { id: '2', title: 'Noticia 2', subtitle: 'Subtítulo 2', image: require('../../assets/gris_placeholder.png') },
+    { id: '3', title: 'Noticia 3', subtitle: 'Subtítulo 3', image: require('../../assets/gris_placeholder.png') },
+    { id: '4', title: 'Noticia 4', subtitle: 'Subtítulo 4', image: require('../../assets/gris_placeholder.png') },
+    { id: '5', title: 'Noticia 5', subtitle: 'Subtítulo 5', image: require('../../assets/gris_placeholder.png') },
+    { id: '6', title: 'Noticia 6', subtitle: 'Subtítulo 6', image: require('../../assets/gris_placeholder.png') },
+    { id: '7', title: 'Noticia 7', subtitle: 'Subtítulo 7', image: require('../../assets/gris_placeholder.png') },
+  ];
+
+
+
+
+  return ( 
+    <>  
+    <View style={atomsStyles.container}>
+     <RNTextComponent style={atomsStyles.text}>Bienvenido a la página principal</RNTextComponent>
+      <RNButton title="Ir a Noticias" onPress={() => navigation.navigate('News')} /> 
+       <CardList data={data} />
+    </View>
+    </>
+  );
+};
+
+export default HomeScreen;
+
+
+
+=====================================
+Archivo: C:\Users\mariodominguez\Desktop\APP\AppAUniversal\src\screens\NeswScreen.tsx
+=====================================
+import React from 'react';
+import { View, Text, Button } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import atomsStyles from '../styles/atomStyles';
+import RNTextComponent from '../atoms/RNText';
+import { ScrollView } from 'react-native-gesture-handler';
+import Card from '../molecules/card';
+
+const NewsScreen: React.FC = () => {
+  const navigation = useNavigation();
+
+  return (
+    <View style={atomsStyles.container}>
+      <RNTextComponent style={atomsStyles.text}>Página de Noticias</RNTextComponent>
+      <Button title="Volver a Home" onPress={() => navigation.navigate('Home')} />
+
+      <ScrollView style={atomsStyles.container}>
+      {/* Card Horizontal */}
+      <Card
+        title="Noticia Destacada"
+        subtitle="Subtítulo de la noticia"
+        imageSource={require('../../assets/gris_placeholder.png')}
+        variant="horizontal"
+        onPress={() => console.log('Card Horizontal Clicked')}
+      />
+
+      {/* Card Vertical */}
+      <Card
+        title="Últimas Noticias"
+        subtitle="Detalles de la noticia"
+        imageSource={require('../../assets/gris_placeholder.png')}
+        variant="vertical"
+        onPress={() => console.log('Card Vertical Clicked')}
+      />
+
+      {/* Card Grande 
+      <Card
+        title="Noticias Importantes"
+        subtitle="Detalles extendidos"
+        imageSource={require('../../assets/gris_placeholder.png')}
+        variant="large"
+        onPress={() => console.log('Card Grande Clicked')}
+      />
+      */}
+      {/* Card Horizontal */}
+      <Card
+        title="Noticia Destacada"
+        subtitle="Subtítulo de la noticia"
+        imageSource={require('../../assets/gris_placeholder.png')}
+        variant="horizontal"
+        onPress={() => console.log('Card Horizontal Clicked')}
+      />
+
+      {/* Card Vertical */}
+      <Card
+        title="Últimas Noticias"
+        subtitle="Detalles de la noticia"
+        imageSource={require('../../assets/gris_placeholder.png')}
+        variant="vertical"
+        onPress={() => console.log('Card Vertical Clicked')}
+      />
+
+      {/* Card Horizontal */}
+      <Card
+        title="Noticia Destacada"
+        subtitle="Subtítulo de la noticia"
+        imageSource={require('../../assets/gris_placeholder.png')}
+        variant="horizontal"
+        onPress={() => console.log('Card Horizontal Clicked')}
+      />
+
+      {/* Card Vertical */}
+      <Card
+        title="Últimas Noticias"
+        subtitle="Detalles de la noticia"
+        imageSource={require('../../assets/gris_placeholder.png')}
+        variant="vertical"
+        onPress={() => console.log('Card Vertical Clicked')}
+      />
+
+  
+
+    </ScrollView>
+ 
+    </View>
+  );
+};
+
+export default NewsScreen;
+
+
+
+=====================================
+Archivo: C:\Users\mariodominguez\Desktop\APP\AppAUniversal\src\styles\atomStyles.ts
+=====================================
+import { StyleSheet } from 'react-native';
+
+const atomsStyles = StyleSheet.create({
+  container: {
+    flex: 1,
+    padding: 16,
+    backgroundColor: '#f9f9f9', // Color de fondo genérico
+  },
+  centeredContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#f9f9f9',
+  },
+  text: {
+    fontSize: 16,
+    fontWeight: '500',
+    color: '#333', // Color por defecto
+  },
+  title: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    color: '#000',
+    marginBottom: 8,
+  },
+  subtitle: {
+    fontSize: 18,
+    fontWeight: '600',
+    color: '#666',
+    marginBottom: 6,
+  },
+  label: {
+    fontSize: 14,
+    fontWeight: '500',
+    color: '#555',
+    marginBottom: 4,
+  },
+  button: {
+    backgroundColor: '#007bff',
+    paddingVertical: 12,
+    paddingHorizontal: 16,
+    borderRadius: 8,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  buttonText: {
+    color: '#fff',
+    fontSize: 16,
+    fontWeight: 'bold',
+  },
+  image: {
+    width: '100%',
+    height: 200,
+    borderRadius: 10,
+    resizeMode: 'cover',
+  },
+  card: {
+    backgroundColor: '#fff',
+    padding: 16,
+    borderRadius: 10,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    elevation: 3,
+    marginBottom: 12,
+  },
+  input: {
+    borderWidth: 1,
+    borderColor: '#ccc',
+    padding: 10,
+    borderRadius: 8,
+    fontSize: 16,
+    marginBottom: 10,
+    backgroundColor: '#fff',
+  },
+  spinner: {
+    marginVertical: 16,
+  },
+  safeContainer: {
+    flex: 1,
+    backgroundColor: '#fff',
+    marginVertical: 5,
+    paddingTop: 20, // Asegura espacio en la parte superior si es necesario
+  },
+});
+
+export default atomsStyles;
+
+
+
+=====================================
+Archivo: C:\Users\mariodominguez\Desktop\APP\AppAUniversal\src\styles\cardStyles.ts
+=====================================
+import { Dimensions, StyleSheet } from 'react-native';
+const { height } = Dimensions.get('window');
+const largeCardHeight = height * 0.9;
+const cardStyles = StyleSheet.create({
+  card: {
+    backgroundColor: '#fff',
+    borderRadius: 10,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    elevation: 3,
+    marginBottom: 16,
+    overflow: 'hidden',
+    padding: 3,
+  },
+  textContainer: {
+    padding: 12,
+  },
+  title: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: '#000',
+    marginBottom: 4,
+  },
+  subtitle: {
+    fontSize: 14,
+    color: '#666',
+  },
+  
+  // 🔹 Estilos para la variante Horizontal
+  horizontal: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  imageHorizontal: {
+    width: 100,
+    height: 100,
+    borderRadius: 8,
+    marginLeft: 5,
+    padding: 5,
+  },
+
+  // 🔹 Estilos para la variante Vertical
+  vertical: {
+    flexDirection: 'column',
+  },
+  imageVertical: {
+    width: '100%',
+    height: 150,
+  },
+
+  // 🔹 Estilos para la variante Grande
+  large: {
+    flexDirection: 'column',
+  },
+  imageLarge: {
+    width: '100%',
+    height: largeCardHeight*.75 ,
+  },
+});
+
+export default cardStyles;
+
+
+
+=====================================
+Archivo: C:\Users\mariodominguez\Desktop\APP\AppAUniversal\src\styles\carousel.ts
+=====================================
+import { StyleSheet, Dimensions } from 'react-native';
+
+const { width, height } = Dimensions.get('window');
+
+const carouselStyles = StyleSheet.create({
+  slide: {
+    width,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  image: {
+    width: width * 0.9,
+    height: height * 0.5,
+    borderRadius: 10,
+  },
+  video: {
+    width: width * 0.9,
+    height: height * 0.5,
+    borderRadius: 10,
+  },
+});
+
+export default carouselStyles;
+
+
+
+=====================================
+Archivo: C:\Users\mariodominguez\Desktop\APP\AppAUniversal\src\styles\colors.ts
+=====================================
+const colors = {
+    primary: '#007bff', // Azul principal
+    secondary: '#6c757d', // Gris oscuro
+    success: '#28a745', // Verde
+    danger: '#dc3545', // Rojo
+    warning: '#ffc107', // Amarillo
+    info: '#17a2b8', // Azul claro
+    light: '#f8f9fa', // Gris claro
+    dark: '#343a40', // Gris oscuro fuerte
+    white: '#ffffff',
+    black: '#000000',
+  
+    // Colores específicos de la app
+    background: '#f9f9f9',
+    textPrimary: '#333',
+    textSecondary: '#555',
+    border: '#ccc',
+  };
+  
+  export default colors;
+  
+
+
+=====================================
+Archivo: C:\Users\mariodominguez\Desktop\APP\AppAUniversal\src\styles\headerStyles.ts
+=====================================
+import { StyleSheet, Platform, StatusBar } from 'react-native';
+import colors from './colors';
+
+
+const headerStyles = StyleSheet.create({
+  header: {
+    height: 'auto', // Ajuste dinámico
+    backgroundColor: colors.white,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingHorizontal: 12, // Reducir el padding para mejor distribución
+    paddingTop: 5, // Ajuste extra en Android
+    elevation: 4, // Sombra en Android
+    shadowColor: colors.black, // Sombra en iOS
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 3,
+  },
+  leftContainer: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  centerContainer: {
+    flex: 2,
+    alignItems: 'center',
+  },
+  rightContainer: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
+    alignItems: 'center',
+  },
+  iconButton: {
+    padding: 8, // Espaciado más preciso para iconos
+  },
+  logo: {
+    width: 140, // Tamaño ajustado del logo
+    height: 36, // Proporción más estándar
+    resizeMode: 'contain',
+  },
+});
+
+export default headerStyles;
+
+
+
+=====================================
+Archivo: C:\Users\mariodominguez\Desktop\APP\AppAUniversal\src\styles\layoutStyles.ts
+=====================================
+import { StyleSheet, Platform, StatusBar } from 'react-native';
+
+const layoutStyles = StyleSheet.create({
+  safeContainer: {
+    flex: 1,
+    backgroundColor: '#fff',
+    paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0, // Ajuste dinámico solo en Android
+  },
+  content: {
+    flex: 1,
+    paddingHorizontal: 16,
+  },
+});
+
+export default layoutStyles;
+
+
+
+=====================================
+Archivo: C:\Users\mariodominguez\Desktop\APP\AppAUniversal\src\styles\typography.ts
+=====================================
+const typography = {
+    fontFamily: 'System', // Puedes cambiarla si tienes una fuente personalizada
+  
+    sizes: {
+      small: 12,
+      medium: 16,
+      large: 20,
+      xLarge: 24,
+      xxLarge: 32,
+    },
+  
+    weights: {
+      light: '300',
+      regular: '400',
+      medium: '500',
+      semiBold: '600',
+      bold: '700',
+    },
+  
+    lineHeights: {
+      small: 18,
+      medium: 22,
+      large: 26,
+      xLarge: 32,
+    },
+  };
+  
+  export default typography;
+  
+
