@@ -40,8 +40,8 @@ const HomeScreen: React.FC = () => {
   return ( 
     <>  
     <View style={atomsStyles.container}>
-     <RNTextComponent style={atomsStyles.text}>Bienvenido a la página principal</RNTextComponent>
-      <RNButton title="Ir a Noticias" onPress={() => navigation.navigate('News')} /> 
+     {/* <RNTextComponent style={atomsStyles.text}>Bienvenido a la página principal</RNTextComponent>
+      <RNButton title="Ir a Noticias" onPress={() => navigation.navigate('News')} />  */}
        <CardList data={data} />
     </View>
     </>

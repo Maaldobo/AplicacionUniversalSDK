@@ -11,8 +11,8 @@ const NewsScreen: React.FC = () => {
 
   return (
     <View style={atomsStyles.container}>
-      <RNTextComponent style={atomsStyles.text}>Página de Noticias</RNTextComponent>
-      <Button title="Volver a Home" onPress={() => navigation.navigate('Home')} />
+      {/* <RNTextComponent style={atomsStyles.text}>Página de Noticias</RNTextComponent>
+      <Button title="Volver a Home" onPress={() => navigation.navigate('Home')} /> */}
 
       <ScrollView style={atomsStyles.container}>
       {/* Card Horizontal */}

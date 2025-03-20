@@ -39,7 +39,11 @@ allprojects {
         maven { url 'https://www.jitpack.io' }
 
         maven {
-    url "${project.rootDir}/../arcxp-libs"          //3312
-}
+            url "${project.rootDir}/../arcxp-libs"          //3312
+        }
+        maven {
+            url "https://piano.io/maven"
+        }
+
     }
 }

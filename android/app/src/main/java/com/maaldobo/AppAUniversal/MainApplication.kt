@@ -3,8 +3,12 @@ package com.maaldobo.AppAUniversal
 import android.app.Application
 import android.content.res.Configuration
 
+// ArcXP
 import com.arcxp.sdk.ArcXPMobileSDK               //3312
 import com.arcxp.sdk.config.ArcXPContentConfig
+
+// Piano
+import io.piano.android.api.PianoSdk          //3312
 
 
 import com.facebook.react.PackageList
@@ -46,11 +50,16 @@ class MainApplication : Application(), ReactApplication {
         
         // Inicializar ArcXP SDK      3312
         val arcxpContentConfig = ArcXPContentConfig.Builder()
-        .setBaseUrl("https://yourOrg-yourSite-yourEnv.cdn.arcpublishing.com") // Personaliza con tu base URL
-        .setOrgName("yourOrg") // Nombre de la organización
-        .setSite("yourSite") // Nombre del sitio
+        //.setBaseUrl("https://yourOrg-yourSite-yourEnv.cdn.arcpublishing.com") // Personaliza con tu base URL
+        //.setBaseUrl("https://eluniversal-eluniversal-prod.cdn.arcpublishing.com") // Personaliza con tu base URL
+        .setBaseUrl("https://api.eluniversal.arcpublishing.com") // Personaliza con tu base URL
+       // .setOrgName("yourOrg") // Nombre de la organización
+        .setOrgName("eluniversal") // Nombre de la organización
+       // .setSite("yourSite") // Nombre del sitio
+        .setSite("eluniversal") // Nombre del sitio
         .setEnvironment("prod") // Ambiente (ej. prod, staging, dev)
-        .setNavigationEndpoint("mobile-nav") // Endpoint de navegación
+       // .setNavigationEndpoint("mobile-nav") // Endpoint de navegación
+        .setNavigationEndpoint("nav-mobile-app") // Endpoint de navegación
         .setCacheSize(1024) // Tamaño máximo del caché en MB (entre 10 y 1024)
         .setCacheTimeUntilUpdate(5) // Minutos antes de actualizar caché
         .setPreloading(true) // Habilitar precarga de contenido
@@ -66,6 +75,11 @@ class MainApplication : Application(), ReactApplication {
             null,
             null
         )
+
+
+        //piano
+
+        PianoSdk.init(this, "dOm1nMaZpu") //3312
 
         SoLoader.init(this, OpenSourceMergedSoMapping)
         if (BuildConfig.IS_NEW_ARCHITECTURE_ENABLED) {

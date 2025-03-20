@@ -1,6 +1,6 @@
 
 =====================================
-Archivo: C:\Users\mariodominguez\Desktop\APP\AppAUniversal\.expo\README.md
+Archivo: C:\Users\madb5\OneDrive\Escritorio\AppUniversal\.expo\README.md
 =====================================
 > Why do I have a folder named ".expo" in my project?
 The ".expo" folder is created when an Expo project is started using "expo start" command.
@@ -14,7 +14,7 @@ Upon project creation, the ".expo" folder is already added to your ".gitignore" 
 
 
 =====================================
-Archivo: C:\Users\mariodominguez\Desktop\APP\AppAUniversal\App.tsx
+Archivo: C:\Users\madb5\OneDrive\Escritorio\AppUniversal\App.tsx
 =====================================
 import React from 'react';
 import { StatusBar } from 'react-native';
@@ -46,7 +46,7 @@ export default App;
 
 
 =====================================
-Archivo: C:\Users\mariodominguez\Desktop\APP\AppAUniversal\extraercodigo.js
+Archivo: C:\Users\madb5\OneDrive\Escritorio\AppUniversal\extraercodigo.js
 =====================================
 const fs = require('fs');
 const path = require('path');
@@ -126,7 +126,7 @@ extractCode();
 
 
 =====================================
-Archivo: C:\Users\mariodominguez\Desktop\APP\AppAUniversal\index.js
+Archivo: C:\Users\madb5\OneDrive\Escritorio\AppUniversal\index.js
 =====================================
 import { registerRootComponent } from 'expo';
 
@@ -140,7 +140,7 @@ registerRootComponent(App);
 
 
 =====================================
-Archivo: C:\Users\mariodominguez\Desktop\APP\AppAUniversal\src\atoms\BookmarkButton.tsx
+Archivo: C:\Users\madb5\OneDrive\Escritorio\AppUniversal\src\atoms\BookmarkButton.tsx
 =====================================
 import React, { useState } from 'react';
 import { TouchableOpacity, StyleSheet, Text as RNText } from 'react-native';
@@ -173,7 +173,7 @@ export default BookmarkButton;
 
 
 =====================================
-Archivo: C:\Users\mariodominguez\Desktop\APP\AppAUniversal\src\atoms\PushNotificationToggle.tsx
+Archivo: C:\Users\madb5\OneDrive\Escritorio\AppUniversal\src\atoms\PushNotificationToggle.tsx
 =====================================
 import React, { useState } from 'react';
 import { View, Text as RNText, Switch, StyleSheet } from 'react-native';
@@ -210,7 +210,7 @@ export default PushNotificationToggle;
 
 
 =====================================
-Archivo: C:\Users\mariodominguez\Desktop\APP\AppAUniversal\src\atoms\RNButton.tsx
+Archivo: C:\Users\madb5\OneDrive\Escritorio\AppUniversal\src\atoms\RNButton.tsx
 =====================================
 import React from 'react';
 import { TouchableOpacity, Text as RNText } from 'react-native';
@@ -235,7 +235,7 @@ export default RNButton;
 
 
 =====================================
-Archivo: C:\Users\mariodominguez\Desktop\APP\AppAUniversal\src\atoms\RNImage.tsx
+Archivo: C:\Users\madb5\OneDrive\Escritorio\AppUniversal\src\atoms\RNImage.tsx
 =====================================
 import React from 'react';
 import { Image as NativeImage, ImageStyle, StyleProp, ImageSourcePropType } from 'react-native';
@@ -261,7 +261,7 @@ export default RNImage;
 
 
 =====================================
-Archivo: C:\Users\mariodominguez\Desktop\APP\AppAUniversal\src\atoms\RNInput.tsx
+Archivo: C:\Users\madb5\OneDrive\Escritorio\AppUniversal\src\atoms\RNInput.tsx
 =====================================
 import React from 'react';
 import { TextInput, StyleSheet, TextInputProps } from 'react-native';
@@ -280,7 +280,7 @@ export default RNInput;
 
 
 =====================================
-Archivo: C:\Users\mariodominguez\Desktop\APP\AppAUniversal\src\atoms\RNLoadingSpinner.tsx
+Archivo: C:\Users\madb5\OneDrive\Escritorio\AppUniversal\src\atoms\RNLoadingSpinner.tsx
 =====================================
 import React from 'react';
 import { ActivityIndicator } from 'react-native';
@@ -297,7 +297,7 @@ export default RNLoadingSpinner;
 
 
 =====================================
-Archivo: C:\Users\mariodominguez\Desktop\APP\AppAUniversal\src\atoms\RNText.tsx
+Archivo: C:\Users\madb5\OneDrive\Escritorio\AppUniversal\src\atoms\RNText.tsx
 =====================================
 import React from 'react';
 import { Text as RNText, TextStyle } from 'react-native';
@@ -323,7 +323,7 @@ export default RNTextComponent;
 
 
 =====================================
-Archivo: C:\Users\mariodominguez\Desktop\APP\AppAUniversal\src\atoms\SocialSharing.tsx
+Archivo: C:\Users\madb5\OneDrive\Escritorio\AppUniversal\src\atoms\SocialSharing.tsx
 =====================================
 import React from 'react';
 import { TouchableOpacity, StyleSheet, Share } from 'react-native';
@@ -361,7 +361,7 @@ export default SocialSharing;
 
 
 =====================================
-Archivo: C:\Users\mariodominguez\Desktop\APP\AppAUniversal\src\components\header.tsx
+Archivo: C:\Users\madb5\OneDrive\Escritorio\AppUniversal\src\components\header.tsx
 =====================================
 import React from 'react';
 import { View, TouchableOpacity } from 'react-native';
@@ -410,7 +410,7 @@ export default Header;
 
 
 =====================================
-Archivo: C:\Users\mariodominguez\Desktop\APP\AppAUniversal\src\layouts\Layouts.tsx
+Archivo: C:\Users\madb5\OneDrive\Escritorio\AppUniversal\src\layouts\Layouts.tsx
 =====================================
 import React, { ReactNode } from 'react';
 import { SafeAreaView, View, StatusBar } from 'react-native';
@@ -439,7 +439,7 @@ type LayoutProps = {
 
 
 =====================================
-Archivo: C:\Users\mariodominguez\Desktop\APP\AppAUniversal\src\molecules\card.tsx
+Archivo: C:\Users\madb5\OneDrive\Escritorio\AppUniversal\src\molecules\card.tsx
 =====================================
 import React from 'react';
 import { View, TouchableOpacity } from 'react-native';
@@ -500,7 +500,7 @@ export default Card;
 
 
 =====================================
-Archivo: C:\Users\mariodominguez\Desktop\APP\AppAUniversal\src\molecules\cardList.tsx
+Archivo: C:\Users\madb5\OneDrive\Escritorio\AppUniversal\src\molecules\cardList.tsx
 =====================================
 import React, { useRef } from 'react';
 import { FlatList, View, Dimensions } from 'react-native';
@@ -561,15 +561,17 @@ export default CardList;
 
 
 =====================================
-Archivo: C:\Users\mariodominguez\Desktop\APP\AppAUniversal\src\molecules\Carousel.tsx
+Archivo: C:\Users\madb5\OneDrive\Escritorio\AppUniversal\src\molecules\Carousel.tsx
 =====================================
 import React, { useRef } from 'react';
 import { FlatList, View, Dimensions } from 'react-native';
 import Video from 'react-native-video';
 import { WebView } from 'react-native-webview';
 import RNImage from '../atoms/RNImage';
-import Card from '../molecules/Card';
-import carouselStyles from '../styles/carouselStyles';
+import carouselStyles from '../styles/carousel';
+import Card from './card';
+
+
 
 const { width } = Dimensions.get('window');
 
@@ -644,7 +646,7 @@ export default Carousel;
 
 
 =====================================
-Archivo: C:\Users\mariodominguez\Desktop\APP\AppAUniversal\src\screens\CarouselScreen.tsx
+Archivo: C:\Users\madb5\OneDrive\Escritorio\AppUniversal\src\screens\CarouselScreen.tsx
 =====================================
 import React from 'react';
 import { SafeAreaView } from 'react-native';
@@ -672,7 +674,7 @@ export default CarouselScreen;
 
 
 =====================================
-Archivo: C:\Users\mariodominguez\Desktop\APP\AppAUniversal\src\screens\HomeScreen.tsx
+Archivo: C:\Users\madb5\OneDrive\Escritorio\AppUniversal\src\screens\HomeScreen.tsx
 =====================================
 import React, { useRef } from 'react';
 import { FlatList, View, Dimensions } from 'react-native';
@@ -729,7 +731,7 @@ export default HomeScreen;
 
 
 =====================================
-Archivo: C:\Users\mariodominguez\Desktop\APP\AppAUniversal\src\screens\NeswScreen.tsx
+Archivo: C:\Users\madb5\OneDrive\Escritorio\AppUniversal\src\screens\NeswScreen.tsx
 =====================================
 import React from 'react';
 import { View, Text, Button } from 'react-native';
@@ -824,7 +826,7 @@ export default NewsScreen;
 
 
 =====================================
-Archivo: C:\Users\mariodominguez\Desktop\APP\AppAUniversal\src\styles\atomStyles.ts
+Archivo: C:\Users\madb5\OneDrive\Escritorio\AppUniversal\src\styles\atomStyles.ts
 =====================================
 import { StyleSheet } from 'react-native';
 
@@ -918,7 +920,7 @@ export default atomsStyles;
 
 
 =====================================
-Archivo: C:\Users\mariodominguez\Desktop\APP\AppAUniversal\src\styles\cardStyles.ts
+Archivo: C:\Users\madb5\OneDrive\Escritorio\AppUniversal\src\styles\cardStyles.ts
 =====================================
 import { Dimensions, StyleSheet } from 'react-native';
 const { height } = Dimensions.get('window');
@@ -987,7 +989,7 @@ export default cardStyles;
 
 
 =====================================
-Archivo: C:\Users\mariodominguez\Desktop\APP\AppAUniversal\src\styles\carousel.ts
+Archivo: C:\Users\madb5\OneDrive\Escritorio\AppUniversal\src\styles\carousel.ts
 =====================================
 import { StyleSheet, Dimensions } from 'react-native';
 
@@ -1016,7 +1018,7 @@ export default carouselStyles;
 
 
 =====================================
-Archivo: C:\Users\mariodominguez\Desktop\APP\AppAUniversal\src\styles\colors.ts
+Archivo: C:\Users\madb5\OneDrive\Escritorio\AppUniversal\src\styles\colors.ts
 =====================================
 const colors = {
     primary: '#007bff', // Azul principal
@@ -1042,7 +1044,7 @@ const colors = {
 
 
 =====================================
-Archivo: C:\Users\mariodominguez\Desktop\APP\AppAUniversal\src\styles\headerStyles.ts
+Archivo: C:\Users\madb5\OneDrive\Escritorio\AppUniversal\src\styles\headerStyles.ts
 =====================================
 import { StyleSheet, Platform, StatusBar } from 'react-native';
 import colors from './colors';
@@ -1093,7 +1095,7 @@ export default headerStyles;
 
 
 =====================================
-Archivo: C:\Users\mariodominguez\Desktop\APP\AppAUniversal\src\styles\layoutStyles.ts
+Archivo: C:\Users\madb5\OneDrive\Escritorio\AppUniversal\src\styles\layoutStyles.ts
 =====================================
 import { StyleSheet, Platform, StatusBar } from 'react-native';
 
@@ -1114,7 +1116,7 @@ export default layoutStyles;
 
 
 =====================================
-Archivo: C:\Users\mariodominguez\Desktop\APP\AppAUniversal\src\styles\typography.ts
+Archivo: C:\Users\madb5\OneDrive\Escritorio\AppUniversal\src\styles\typography.ts
 =====================================
 const typography = {
     fontFamily: 'System', // Puedes cambiarla si tienes una fuente personalizada

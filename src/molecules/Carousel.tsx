@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { FlatList, View, Dimensions } from 'react-native';
-import Video from 'react-native-video';
+//import Video from 'react-native-video';
 import { WebView } from 'react-native-webview';
 import RNImage from '../atoms/RNImage';
 import carouselStyles from '../styles/carousel';
