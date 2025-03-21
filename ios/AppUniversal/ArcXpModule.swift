@@ -7,14 +7,16 @@ public class ArcXpModule: Module {
   public func definition() -> ModuleDefinition {
     Name("ArcXpModule")
 
+
+                                                                      //3312
     // Función para inicializar el SDK ArcXP
     Function("initializeSdk") { () -> String in
       // Configuración de contenido de ArcXP
       let contentConfig = ArcXPContentConfig(
-        organizationName: "TU_ORG",            // +++++MODIFICACION+++++
-        serverEnvironment: .sandbox,           // +++++MODIFICACION+++++ (.production si es ambiente prod)
-        site: "TU_SITE",                      // +++++MODIFICACION+++++
-        hostDomain: "tu-org-tu-site-sandbox.web.arc-cdn.net",  // +++++MODIFICACION+++++
+        organizationName: "eluniversal",            // +++++MODIFICACION+++++
+        serverEnvironment: .production,           // +++++MODIFICACION+++++ (.production si es ambiente prod)
+        site: "eluniversal",                      // +++++MODIFICACION+++++
+        hostDomain: "https://api.sandbox.eluniversal.arcpublishing.com/",  // +++++MODIFICACION+++++
         thumborResizerKey: "YOUR_RESIZER_KEY"  // +++++MODIFICACION+++++ (clave para servicio de imágenes, si aplica)
       )
       let cacheConfig = ArcXPCacheConfig(timeToConsider: 10)  // Configuración de caché (ej. 10 minutos)

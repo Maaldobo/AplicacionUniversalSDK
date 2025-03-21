@@ -4,8 +4,8 @@ import { Text, Button, FlatList, ActivityIndicator, View } from 'react-native';
 
 //import { NativeModulesProxy } from 'expo-modules-core';
 //const { ArcXpModule } = NativeModulesProxy;
-
-const { ArcXpModule } = NativeModulesProxy;
+import { NativeModules } from 'react-native';
+const { ArcXpModule } = NativeModules;
 
 export default function ArcXpContentView() {
   const [articles, setArticles] = useState([]);
