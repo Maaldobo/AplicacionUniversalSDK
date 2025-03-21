@@ -8,11 +8,11 @@ const OUTPUT_FILE = 'archivos_con_codigo_simplificado.txt';
 const ALLOWED_EXTENSIONS = [
     '.js', '.jsx', '.ts', '.tsx', '.md', '.html', 
     '.css', '.scss', '.yaml', '.yml', 
-    '.php', '.sh', '.rb', '.xml', '.ini', '.env'
+    '.php', '.sh', '.rb', '.xml', '.ini', '.env','kt','swift', 'build'
 ];
 
 // Directorios a excluir (para evitar archivos innecesarios)
-const EXCLUDED_DIRS = ['node_modules','.txt', '.py', '.java', '.git', 'dist', 'build', 'coverage', 'bin', '.json', '.lock', '.idea', '.vscode', 'android', 'ios', 'public', 'assets', 'fonts', 'images', 'videos', 'sounds', 'docs', 'test', 'tests', 'spec', 'specs', 'snapshots', 'migrations', 'seeds', 'logs', 'tmp', 'temp', 'cache', 'data', 'uploads', 'downloads', 'backup', 'backups'];
+const EXCLUDED_DIRS = ['node_modules','.txt', '.py', '.java', '.git', 'dist', 'coverage', 'bin', '.json', '.lock', '.idea', '.vscode', 'public', 'assets', 'fonts', 'images', 'videos', 'sounds', 'docs', 'test', 'tests', 'spec', 'specs', 'snapshots', 'migrations', 'seeds', 'logs', 'tmp', 'temp', 'cache', 'data', 'uploads', 'downloads', 'backup', 'backups'];
 
 // Función para verificar si el archivo es binario
 const isBinaryFile = (filePath) => {

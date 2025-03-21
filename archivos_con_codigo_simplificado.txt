@@ -1,6 +1,6 @@
 
 =====================================
-Archivo: C:\Users\madb5\OneDrive\Escritorio\AppUniversal\.expo\README.md
+Archivo: C:\Users\mariodominguez\Desktop\APP\AppAUniversal\.expo\README.md
 =====================================
 > Why do I have a folder named ".expo" in my project?
 The ".expo" folder is created when an Expo project is started using "expo start" command.
@@ -14,7 +14,181 @@ Upon project creation, the ".expo" folder is already added to your ".gitignore" 
 
 
 =====================================
-Archivo: C:\Users\madb5\OneDrive\Escritorio\AppUniversal\App.tsx
+Archivo: C:\Users\mariodominguez\Desktop\APP\AppAUniversal\android\app\src\debug\AndroidManifest.xml
+=====================================
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+
+    <application android:usesCleartextTraffic="true" tools:targetApi="28" tools:ignore="GoogleAppIndexingWarning" tools:replace="android:usesCleartextTraffic" />
+</manifest>
+
+
+
+=====================================
+Archivo: C:\Users\mariodominguez\Desktop\APP\AppAUniversal\android\app\src\main\AndroidManifest.xml
+=====================================
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+  <uses-permission android:name="android.permission.INTERNET"/>
+  <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+  <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+  <uses-permission android:name="android.permission.VIBRATE"/>
+  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+  <queries>
+    <intent>
+      <action android:name="android.intent.action.VIEW"/>
+      <category android:name="android.intent.category.BROWSABLE"/>
+      <data android:scheme="https"/>
+    </intent>
+  </queries>
+  <application android:name=".MainApplication" android:label="@string/app_name" android:icon="@mipmap/ic_launcher" android:roundIcon="@mipmap/ic_launcher_round" android:allowBackup="true" android:theme="@style/AppTheme" android:supportsRtl="true">
+    <meta-data android:name="expo.modules.updates.ENABLED" android:value="false"/>
+    <meta-data android:name="expo.modules.updates.EXPO_UPDATES_CHECK_ON_LAUNCH" android:value="ALWAYS"/>
+    <meta-data android:name="expo.modules.updates.EXPO_UPDATES_LAUNCH_WAIT_MS" android:value="0"/>
+    <activity android:name=".MainActivity" android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|uiMode" android:launchMode="singleTask" android:windowSoftInputMode="adjustResize" android:theme="@style/Theme.App.SplashScreen" android:exported="true" android:screenOrientation="portrait">
+      <intent-filter>
+        <action android:name="android.intent.action.MAIN"/>
+        <category android:name="android.intent.category.LAUNCHER"/>
+      </intent-filter>
+      <intent-filter>
+        <action android:name="android.intent.action.VIEW"/>
+        <category android:name="android.intent.category.DEFAULT"/>
+        <category android:name="android.intent.category.BROWSABLE"/>
+        <data android:scheme="com.maaldobo.AppAUniversal"/>
+        <data android:scheme="exp+appauniversal"/>
+      </intent-filter>
+    </activity>
+  </application>
+</manifest>
+
+
+=====================================
+Archivo: C:\Users\mariodominguez\Desktop\APP\AppAUniversal\android\app\src\main\res\drawable\ic_launcher_background.xml
+=====================================
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+  <item android:drawable="@color/splashscreen_background"/>
+  <item>
+    <bitmap android:gravity="center" android:src="@drawable/splashscreen_logo"/>
+  </item>
+</layer-list>
+
+
+=====================================
+Archivo: C:\Users\mariodominguez\Desktop\APP\AppAUniversal\android\app\src\main\res\drawable\rn_edit_text_material.xml
+=====================================
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2014 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<inset xmlns:android="http://schemas.android.com/apk/res/android"
+       android:insetLeft="@dimen/abc_edit_text_inset_horizontal_material"
+       android:insetRight="@dimen/abc_edit_text_inset_horizontal_material"
+       android:insetTop="@dimen/abc_edit_text_inset_top_material"
+       android:insetBottom="@dimen/abc_edit_text_inset_bottom_material"
+       >
+
+    <selector>
+        <!--
+          This file is a copy of abc_edit_text_material (https://bit.ly/3k8fX7I).
+          The item below with state_pressed="false" and state_focused="false" causes a NullPointerException.
+          NullPointerException:tempt to invoke virtual method 'android.graphics.drawable.Drawable android.graphics.drawable.Drawable$ConstantState.newDrawable(android.content.res.Resources)'
+
+          <item android:state_pressed="false" android:state_focused="false" android:drawable="@drawable/abc_textfield_default_mtrl_alpha"/>
+
+          For more info, see https://bit.ly/3CdLStv (react-native/pull/29452) and https://bit.ly/3nxOMoR.
+        -->
+        <item android:state_enabled="false" android:drawable="@drawable/abc_textfield_default_mtrl_alpha"/>
+        <item android:drawable="@drawable/abc_textfield_activated_mtrl_alpha"/>
+    </selector>
+
+</inset>
+
+
+
+=====================================
+Archivo: C:\Users\mariodominguez\Desktop\APP\AppAUniversal\android\app\src\main\res\mipmap-anydpi-v26\ic_launcher.xml
+=====================================
+<?xml version="1.0" encoding="utf-8"?>
+<adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
+    <background android:drawable="@color/iconBackground"/>
+    <foreground android:drawable="@mipmap/ic_launcher_foreground"/>
+</adaptive-icon>
+
+
+=====================================
+Archivo: C:\Users\mariodominguez\Desktop\APP\AppAUniversal\android\app\src\main\res\mipmap-anydpi-v26\ic_launcher_round.xml
+=====================================
+<?xml version="1.0" encoding="utf-8"?>
+<adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
+    <background android:drawable="@color/iconBackground"/>
+    <foreground android:drawable="@mipmap/ic_launcher_foreground"/>
+</adaptive-icon>
+
+
+=====================================
+Archivo: C:\Users\mariodominguez\Desktop\APP\AppAUniversal\android\app\src\main\res\values\colors.xml
+=====================================
+<resources>
+  <color name="splashscreen_background">#ffffff</color>
+  <color name="iconBackground">#ffffff</color>
+  <color name="colorPrimary">#023c69</color>
+  <color name="colorPrimaryDark">#ffffff</color>
+</resources>
+
+
+=====================================
+Archivo: C:\Users\mariodominguez\Desktop\APP\AppAUniversal\android\app\src\main\res\values\strings.xml
+=====================================
+<resources>
+  <string name="app_name">AppAUniversal</string>
+  <string name="expo_splash_screen_resize_mode" translatable="false">contain</string>
+  <string name="expo_splash_screen_status_bar_translucent" translatable="false">false</string>
+  <string name="expo_system_ui_user_interface_style" translatable="false">light</string>
+</resources>
+
+
+=====================================
+Archivo: C:\Users\mariodominguez\Desktop\APP\AppAUniversal\android\app\src\main\res\values\styles.xml
+=====================================
+<resources xmlns:tools="http://schemas.android.com/tools">
+  <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    <item name="android:textColor">@android:color/black</item>
+    <item name="android:editTextStyle">@style/ResetEditText</item>
+    <item name="android:editTextBackground">@drawable/rn_edit_text_material</item>
+    <item name="colorPrimary">@color/colorPrimary</item>
+    <item name="android:statusBarColor">#ffffff</item>
+  </style>
+  <style name="ResetEditText" parent="@android:style/Widget.EditText">
+    <item name="android:padding">0dp</item>
+    <item name="android:textColorHint">#c8c8c8</item>
+    <item name="android:textColor">@android:color/black</item>
+  </style>
+  <style name="Theme.App.SplashScreen" parent="AppTheme">
+    <item name="android:windowBackground">@drawable/ic_launcher_background</item>
+  </style>
+</resources>
+
+
+=====================================
+Archivo: C:\Users\mariodominguez\Desktop\APP\AppAUniversal\android\app\src\main\res\values-night\colors.xml
+=====================================
+<resources/>
+
+
+=====================================
+Archivo: C:\Users\mariodominguez\Desktop\APP\AppAUniversal\App.tsx
 =====================================
 import React from 'react';
 import { StatusBar } from 'react-native';
@@ -23,6 +197,8 @@ import { createStackNavigator } from '@react-navigation/stack';
 import Layout from './src/layouts/Layouts';
 import HomeScreen from './src/screens/HomeScreen';
 import NewsScreen from './src/screens/NeswScreen';
+import CarouselScreen from './src/screens/CarouselScreen';
+import SubscriptionScreen from './src/screens/SuscriptionScreen';
 
 const Stack = createStackNavigator();
 
@@ -34,6 +210,8 @@ const App: React.FC = () => {
           <Stack.Navigator screenOptions={{ headerShown: false }}>
             <Stack.Screen name="Home" component={HomeScreen} />
             <Stack.Screen name="News" component={NewsScreen} />
+            <Stack.Screen name="Carrousel" component={CarouselScreen} />
+            <Stack.Screen name="Suscripcion" component={SubscriptionScreen} />
           </Stack.Navigator>
         </Layout>
       </NavigationContainer>
@@ -46,7 +224,7 @@ export default App;
 
 
 =====================================
-Archivo: C:\Users\madb5\OneDrive\Escritorio\AppUniversal\extraercodigo.js
+Archivo: C:\Users\mariodominguez\Desktop\APP\AppAUniversal\extraercodigo.js
 =====================================
 const fs = require('fs');
 const path = require('path');
@@ -58,11 +236,11 @@ const OUTPUT_FILE = 'archivos_con_codigo_simplificado.txt';
 const ALLOWED_EXTENSIONS = [
     '.js', '.jsx', '.ts', '.tsx', '.md', '.html', 
     '.css', '.scss', '.yaml', '.yml', 
-    '.php', '.sh', '.rb', '.xml', '.ini', '.env'
+    '.php', '.sh', '.rb', '.xml', '.ini', '.env','kt','swift', 'build'
 ];
 
 // Directorios a excluir (para evitar archivos innecesarios)
-const EXCLUDED_DIRS = ['node_modules','.txt', '.py', '.java', '.git', 'dist', 'build', 'coverage', 'bin', '.json', '.lock', '.idea', '.vscode', 'android', 'ios', 'public', 'assets', 'fonts', 'images', 'videos', 'sounds', 'docs', 'test', 'tests', 'spec', 'specs', 'snapshots', 'migrations', 'seeds', 'logs', 'tmp', 'temp', 'cache', 'data', 'uploads', 'downloads', 'backup', 'backups'];
+const EXCLUDED_DIRS = ['node_modules','.txt', '.py', '.java', '.git', 'dist', 'coverage', 'bin', '.json', '.lock', '.idea', '.vscode', 'public', 'assets', 'fonts', 'images', 'videos', 'sounds', 'docs', 'test', 'tests', 'spec', 'specs', 'snapshots', 'migrations', 'seeds', 'logs', 'tmp', 'temp', 'cache', 'data', 'uploads', 'downloads', 'backup', 'backups'];
 
 // Función para verificar si el archivo es binario
 const isBinaryFile = (filePath) => {
@@ -126,7 +304,7 @@ extractCode();
 
 
 =====================================
-Archivo: C:\Users\madb5\OneDrive\Escritorio\AppUniversal\index.js
+Archivo: C:\Users\mariodominguez\Desktop\APP\AppAUniversal\index.js
 =====================================
 import { registerRootComponent } from 'expo';
 
@@ -140,7 +318,24 @@ registerRootComponent(App);
 
 
 =====================================
-Archivo: C:\Users\madb5\OneDrive\Escritorio\AppUniversal\src\atoms\BookmarkButton.tsx
+Archivo: C:\Users\mariodominguez\Desktop\APP\AppAUniversal\ios\.xcode.env
+=====================================
+# This `.xcode.env` file is versioned and is used to source the environment
+# used when running script phases inside Xcode.
+# To customize your local environment, you can create an `.xcode.env.local`
+# file that is not versioned.
+
+# NODE_BINARY variable contains the PATH to the node executable.
+#
+# Customize the NODE_BINARY variable here.
+# For example, to use nvm with brew, add the following line
+# . "$(brew --prefix nvm)/nvm.sh" --no-use
+export NODE_BINARY=$(command -v node)
+
+
+
+=====================================
+Archivo: C:\Users\mariodominguez\Desktop\APP\AppAUniversal\src\atoms\BookmarkButton.tsx
 =====================================
 import React, { useState } from 'react';
 import { TouchableOpacity, StyleSheet, Text as RNText } from 'react-native';
@@ -173,7 +368,7 @@ export default BookmarkButton;
 
 
 =====================================
-Archivo: C:\Users\madb5\OneDrive\Escritorio\AppUniversal\src\atoms\PushNotificationToggle.tsx
+Archivo: C:\Users\mariodominguez\Desktop\APP\AppAUniversal\src\atoms\PushNotificationToggle.tsx
 =====================================
 import React, { useState } from 'react';
 import { View, Text as RNText, Switch, StyleSheet } from 'react-native';
@@ -210,7 +405,7 @@ export default PushNotificationToggle;
 
 
 =====================================
-Archivo: C:\Users\madb5\OneDrive\Escritorio\AppUniversal\src\atoms\RNButton.tsx
+Archivo: C:\Users\mariodominguez\Desktop\APP\AppAUniversal\src\atoms\RNButton.tsx
 =====================================
 import React from 'react';
 import { TouchableOpacity, Text as RNText } from 'react-native';
@@ -235,7 +430,7 @@ export default RNButton;
 
 
 =====================================
-Archivo: C:\Users\madb5\OneDrive\Escritorio\AppUniversal\src\atoms\RNImage.tsx
+Archivo: C:\Users\mariodominguez\Desktop\APP\AppAUniversal\src\atoms\RNImage.tsx
 =====================================
 import React from 'react';
 import { Image as NativeImage, ImageStyle, StyleProp, ImageSourcePropType } from 'react-native';
@@ -261,7 +456,7 @@ export default RNImage;
 
 
 =====================================
-Archivo: C:\Users\madb5\OneDrive\Escritorio\AppUniversal\src\atoms\RNInput.tsx
+Archivo: C:\Users\mariodominguez\Desktop\APP\AppAUniversal\src\atoms\RNInput.tsx
 =====================================
 import React from 'react';
 import { TextInput, StyleSheet, TextInputProps } from 'react-native';
@@ -280,7 +475,7 @@ export default RNInput;
 
 
 =====================================
-Archivo: C:\Users\madb5\OneDrive\Escritorio\AppUniversal\src\atoms\RNLoadingSpinner.tsx
+Archivo: C:\Users\mariodominguez\Desktop\APP\AppAUniversal\src\atoms\RNLoadingSpinner.tsx
 =====================================
 import React from 'react';
 import { ActivityIndicator } from 'react-native';
@@ -297,7 +492,7 @@ export default RNLoadingSpinner;
 
 
 =====================================
-Archivo: C:\Users\madb5\OneDrive\Escritorio\AppUniversal\src\atoms\RNText.tsx
+Archivo: C:\Users\mariodominguez\Desktop\APP\AppAUniversal\src\atoms\RNText.tsx
 =====================================
 import React from 'react';
 import { Text as RNText, TextStyle } from 'react-native';
@@ -323,7 +518,7 @@ export default RNTextComponent;
 
 
 =====================================
-Archivo: C:\Users\madb5\OneDrive\Escritorio\AppUniversal\src\atoms\SocialSharing.tsx
+Archivo: C:\Users\mariodominguez\Desktop\APP\AppAUniversal\src\atoms\SocialSharing.tsx
 =====================================
 import React from 'react';
 import { TouchableOpacity, StyleSheet, Share } from 'react-native';
@@ -361,7 +556,91 @@ export default SocialSharing;
 
 
 =====================================
-Archivo: C:\Users\madb5\OneDrive\Escritorio\AppUniversal\src\components\header.tsx
+Archivo: C:\Users\mariodominguez\Desktop\APP\AppAUniversal\src\components\ArcXpContentView.tsx
+=====================================
+//3312
+import React, { useEffect, useState } from 'react';
+import { Text, Button, FlatList, ActivityIndicator, View } from 'react-native';
+
+//import { NativeModulesProxy } from 'expo-modules-core';
+//const { ArcXpModule } = NativeModulesProxy;
+import { NativeModules } from 'react-native';
+const { ArcXpModule } = NativeModules;
+
+export default function ArcXpContentView() {
+  const [articles, setArticles] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+
+  // Ejemplo: cargar la portada ("top stories") al montar el componente
+  useEffect(() => {
+    fetchCollection("mobile-topstories");
+  }, []);
+
+  const initializeArcXp = async () => {
+    try {
+      const result = await ArcXpModule.initializeSdk();
+      console.log(result);
+    } catch (e) {
+      console.error("Error inicializando ArcXP:", e);
+    }
+  };
+
+  const fetchArticle = async (articleId) => {
+    setLoading(true);
+    try {
+      const jsonString = await ArcXpModule.fetchArticle(articleId);
+      const articleData = JSON.parse(jsonString);
+      // manejar el JSON del artículo (por ejemplo, guardarlo o actualizar estado)
+      console.log("Artículo:", articleData);
+    } catch (e) {
+      setError(e);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const fetchCollection = async (alias) => {
+    setLoading(true);
+    try {
+      const jsonString = await ArcXpModule.fetchCollection(alias);
+      const collectionData = JSON.parse(jsonString);
+      // Suponiendo que collectionData contiene una lista de artículos en, por ejemplo, collectionData.content_elements
+      setArticles(collectionData.content_elements || []);
+      setError(null);
+    } catch (e) {
+      setError(e);
+      setArticles([]);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  if (loading) {
+    return <ActivityIndicator size="large" color="#0000ff" />;
+  }
+  if (error) {
+    return <Text style={{color: 'red'}}>Error: {String(error)}</Text>;
+  }
+
+  return (
+    <View style={{ flex: 1, padding: 16 }}>
+      <Button title="Inicializar ArcXP" onPress={initializeArcXp} />
+      <FlatList
+        data={articles}
+        keyExtractor={(item) => item._id}
+        renderItem={({ item }) => (
+          <Text style={{ marginVertical: 8 }}>{item.headlines.basic}</Text>
+        )}
+      />
+    </View>
+  );
+}
+
+
+
+=====================================
+Archivo: C:\Users\mariodominguez\Desktop\APP\AppAUniversal\src\components\header.tsx
 =====================================
 import React from 'react';
 import { View, TouchableOpacity } from 'react-native';
@@ -410,12 +689,77 @@ export default Header;
 
 
 =====================================
-Archivo: C:\Users\madb5\OneDrive\Escritorio\AppUniversal\src\layouts\Layouts.tsx
+Archivo: C:\Users\mariodominguez\Desktop\APP\AppAUniversal\src\components\pianoIntegration.tsx
+=====================================
+import { NativeModules } from 'react-native';
+
+const { PianoModule } = NativeModules;
+
+const PianoIntegration = {
+  init: (aid: string) => {
+    if (PianoModule) {
+      PianoModule.init(aid);
+    }
+  },
+};
+
+export default PianoIntegration;
+
+
+
+=====================================
+Archivo: C:\Users\mariodominguez\Desktop\APP\AppAUniversal\src\components\TabNavigator.tsx
+=====================================
+import React from 'react';
+import { ScrollView, View, StyleSheet } from 'react-native';
+import RNButton from '../atoms/RNButton';
+import { useNavigation } from '@react-navigation/native';
+
+const TabNavigator: React.FC = () => {
+  const navigation = useNavigation();
+
+  return (
+    <View style={styles.container}>
+      <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.scrollContainer}>
+        <RNButton title="Home" onPress={() => navigation.navigate('Home')} />
+        <RNButton title="Noticias" onPress={() => navigation.navigate('News')} />
+        <RNButton title="Carrusel" onPress={() => navigation.navigate('Carrousel')} />
+        <RNButton title="Suscripciones" onPress={() => navigation.navigate('Suscripcion')} />
+        <RNButton title="Elecciones" onPress={() => navigation.navigate('Elections')} />
+
+        <RNButton title="Home" onPress={() => navigation.navigate('Home')} />
+        <RNButton title="Noticias" onPress={() => navigation.navigate('News')} />
+        <RNButton title="Deportes" onPress={() => navigation.navigate('Sports')} />
+        <RNButton title="De Última" onPress={() => navigation.navigate('BreakingNews')} />
+        <RNButton title="Elecciones" onPress={() => navigation.navigate('Elections')} />
+      </ScrollView>
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    paddingVertical: 10,
+    backgroundColor: '#fff',
+  },
+  scrollContainer: {
+    flexDirection: 'row',
+    paddingHorizontal: 10,
+  },
+});
+
+export default TabNavigator;
+
+
+
+=====================================
+Archivo: C:\Users\mariodominguez\Desktop\APP\AppAUniversal\src\layouts\Layouts.tsx
 =====================================
 import React, { ReactNode } from 'react';
 import { SafeAreaView, View, StatusBar } from 'react-native';
 import layoutStyles from '../styles/layoutStyles';
 import Header from '../components/header';
+import TabNavigator from '../components/TabNavigator';
 
 
 type LayoutProps = {
@@ -429,6 +773,7 @@ type LayoutProps = {
           <StatusBar barStyle="dark-content" backgroundColor="transparent" translucent />
           {/* <Header onPressHome={() => console.log('Ir a Home')} /> */}
           <Header />
+          <TabNavigator />
           <View style={layoutStyles.content}>{children}</View>
         </SafeAreaView>
       </>
@@ -439,7 +784,7 @@ type LayoutProps = {
 
 
 =====================================
-Archivo: C:\Users\madb5\OneDrive\Escritorio\AppUniversal\src\molecules\card.tsx
+Archivo: C:\Users\mariodominguez\Desktop\APP\AppAUniversal\src\molecules\card.tsx
 =====================================
 import React from 'react';
 import { View, TouchableOpacity } from 'react-native';
@@ -500,7 +845,7 @@ export default Card;
 
 
 =====================================
-Archivo: C:\Users\madb5\OneDrive\Escritorio\AppUniversal\src\molecules\cardList.tsx
+Archivo: C:\Users\mariodominguez\Desktop\APP\AppAUniversal\src\molecules\cardList.tsx
 =====================================
 import React, { useRef } from 'react';
 import { FlatList, View, Dimensions } from 'react-native';
@@ -561,11 +906,11 @@ export default CardList;
 
 
 =====================================
-Archivo: C:\Users\madb5\OneDrive\Escritorio\AppUniversal\src\molecules\Carousel.tsx
+Archivo: C:\Users\mariodominguez\Desktop\APP\AppAUniversal\src\molecules\Carousel.tsx
 =====================================
 import React, { useRef } from 'react';
 import { FlatList, View, Dimensions } from 'react-native';
-import Video from 'react-native-video';
+//import Video from 'react-native-video';
 import { WebView } from 'react-native-webview';
 import RNImage from '../atoms/RNImage';
 import carouselStyles from '../styles/carousel';
@@ -646,20 +991,22 @@ export default Carousel;
 
 
 =====================================
-Archivo: C:\Users\madb5\OneDrive\Escritorio\AppUniversal\src\screens\CarouselScreen.tsx
+Archivo: C:\Users\mariodominguez\Desktop\APP\AppAUniversal\src\screens\CarouselScreen.tsx
 =====================================
 import React from 'react';
 import { SafeAreaView } from 'react-native';
 import Carousel from '../molecules/Carousel';
+import { useNavigation } from '@react-navigation/native';
 
 
 const CarouselScreen: React.FC = () => {
+    const navigation = useNavigation();
   const data = [
-    { id: '1', type: 'image', source: require('../../assets/image1.jpg') },
+    { id: '1', type: 'image', source: require('../../assets/gris_placeholder.png') },
     { id: '2', type: 'youtube', youtubeId: 'dQw4w9WgXcQ' }, // Video de YouTube
     { id: '3', type: 'card', title: 'Noticia Importante', subtitle: 'Detalles de la noticia', source: require('../../assets/gris_placeholder.png') },
     { id: '4', type: 'youtube', youtubeId: '3JZ_D3ELwOQ' }, // Otro video de YouTube
-    { id: '5', type: 'image', source: require('../../assets/image3.jpg') },
+    { id: '5', type: 'image', source: require('../../assets/gris_placeholder.png') },
   ];
 
   return (
@@ -674,7 +1021,7 @@ export default CarouselScreen;
 
 
 =====================================
-Archivo: C:\Users\madb5\OneDrive\Escritorio\AppUniversal\src\screens\HomeScreen.tsx
+Archivo: C:\Users\mariodominguez\Desktop\APP\AppAUniversal\src\screens\HomeScreen.tsx
 =====================================
 import React, { useRef } from 'react';
 import { FlatList, View, Dimensions } from 'react-native';
@@ -685,8 +1032,11 @@ import RNTextComponent from '../atoms/RNText';
 import RNButton from '../atoms/RNButton';
 import Card from '../molecules/card';
 import CardList from '../molecules/cardList';
+import { NativeModulesProxy } from 'expo-modules-core'
+import ArcXpContentView from '../components/ArcXpContentView';
 
 const { height } = Dimensions.get('window');
+
 
 const HomeScreen: React.FC = () => {
   const navigation = useNavigation();
@@ -718,8 +1068,9 @@ const HomeScreen: React.FC = () => {
   return ( 
     <>  
     <View style={atomsStyles.container}>
-     <RNTextComponent style={atomsStyles.text}>Bienvenido a la página principal</RNTextComponent>
-      <RNButton title="Ir a Noticias" onPress={() => navigation.navigate('News')} /> 
+     {/* <RNTextComponent style={atomsStyles.text}>Bienvenido a la página principal</RNTextComponent>
+      <RNButton title="Ir a Noticias" onPress={() => navigation.navigate('News')} />  */}
+       <ArcXpContentView />
        <CardList data={data} />
     </View>
     </>
@@ -731,7 +1082,7 @@ export default HomeScreen;
 
 
 =====================================
-Archivo: C:\Users\madb5\OneDrive\Escritorio\AppUniversal\src\screens\NeswScreen.tsx
+Archivo: C:\Users\mariodominguez\Desktop\APP\AppAUniversal\src\screens\NeswScreen.tsx
 =====================================
 import React from 'react';
 import { View, Text, Button } from 'react-native';
@@ -746,8 +1097,8 @@ const NewsScreen: React.FC = () => {
 
   return (
     <View style={atomsStyles.container}>
-      <RNTextComponent style={atomsStyles.text}>Página de Noticias</RNTextComponent>
-      <Button title="Volver a Home" onPress={() => navigation.navigate('Home')} />
+      {/* <RNTextComponent style={atomsStyles.text}>Página de Noticias</RNTextComponent>
+      <Button title="Volver a Home" onPress={() => navigation.navigate('Home')} /> */}
 
       <ScrollView style={atomsStyles.container}>
       {/* Card Horizontal */}
@@ -826,7 +1177,32 @@ export default NewsScreen;
 
 
 =====================================
-Archivo: C:\Users\madb5\OneDrive\Escritorio\AppUniversal\src\styles\atomStyles.ts
+Archivo: C:\Users\mariodominguez\Desktop\APP\AppAUniversal\src\screens\SuscriptionScreen.tsx
+=====================================
+import React, { useEffect } from 'react';
+import { View, Text } from 'react-native';
+import PianoIntegration from '../components/pianoIntegration';
+import { useNavigation } from '@react-navigation/native';
+
+const SubscriptionScreen: React.FC = () => {
+  useEffect(() => {
+    PianoIntegration.init('dOm1nMaZpu'); // Inicia el SDK en esta pantalla
+  }, []);
+
+  const navigation = useNavigation();
+    return (
+    <View>
+      <Text>Gestión de Suscripciones con Piano</Text>
+    </View>
+  );
+};
+
+export default SubscriptionScreen;
+
+
+
+=====================================
+Archivo: C:\Users\mariodominguez\Desktop\APP\AppAUniversal\src\styles\atomStyles.ts
 =====================================
 import { StyleSheet } from 'react-native';
 
@@ -920,7 +1296,7 @@ export default atomsStyles;
 
 
 =====================================
-Archivo: C:\Users\madb5\OneDrive\Escritorio\AppUniversal\src\styles\cardStyles.ts
+Archivo: C:\Users\mariodominguez\Desktop\APP\AppAUniversal\src\styles\cardStyles.ts
 =====================================
 import { Dimensions, StyleSheet } from 'react-native';
 const { height } = Dimensions.get('window');
@@ -989,7 +1365,7 @@ export default cardStyles;
 
 
 =====================================
-Archivo: C:\Users\madb5\OneDrive\Escritorio\AppUniversal\src\styles\carousel.ts
+Archivo: C:\Users\mariodominguez\Desktop\APP\AppAUniversal\src\styles\carousel.ts
 =====================================
 import { StyleSheet, Dimensions } from 'react-native';
 
@@ -1018,7 +1394,7 @@ export default carouselStyles;
 
 
 =====================================
-Archivo: C:\Users\madb5\OneDrive\Escritorio\AppUniversal\src\styles\colors.ts
+Archivo: C:\Users\mariodominguez\Desktop\APP\AppAUniversal\src\styles\colors.ts
 =====================================
 const colors = {
     primary: '#007bff', // Azul principal
@@ -1044,7 +1420,7 @@ const colors = {
 
 
 =====================================
-Archivo: C:\Users\madb5\OneDrive\Escritorio\AppUniversal\src\styles\headerStyles.ts
+Archivo: C:\Users\mariodominguez\Desktop\APP\AppAUniversal\src\styles\headerStyles.ts
 =====================================
 import { StyleSheet, Platform, StatusBar } from 'react-native';
 import colors from './colors';
@@ -1095,7 +1471,7 @@ export default headerStyles;
 
 
 =====================================
-Archivo: C:\Users\madb5\OneDrive\Escritorio\AppUniversal\src\styles\layoutStyles.ts
+Archivo: C:\Users\mariodominguez\Desktop\APP\AppAUniversal\src\styles\layoutStyles.ts
 =====================================
 import { StyleSheet, Platform, StatusBar } from 'react-native';
 
@@ -1116,7 +1492,7 @@ export default layoutStyles;
 
 
 =====================================
-Archivo: C:\Users\madb5\OneDrive\Escritorio\AppUniversal\src\styles\typography.ts
+Archivo: C:\Users\mariodominguez\Desktop\APP\AppAUniversal\src\styles\typography.ts
 =====================================
 const typography = {
     fontFamily: 'System', // Puedes cambiarla si tienes una fuente personalizada
