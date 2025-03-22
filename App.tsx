@@ -7,6 +7,7 @@ import HomeScreen from './src/screens/HomeScreen';
 import NewsScreen from './src/screens/NeswScreen';
 import CarouselScreen from './src/screens/CarouselScreen';
 import SubscriptionScreen from './src/screens/SuscriptionScreen';
+import ArcXPScreen from './src/screens/ArcXPScreen';
 
 const Stack = createStackNavigator();
 
@@ -20,6 +21,7 @@ const App: React.FC = () => {
             <Stack.Screen name="News" component={NewsScreen} />
             <Stack.Screen name="Carrousel" component={CarouselScreen} />
             <Stack.Screen name="Suscripcion" component={SubscriptionScreen} />
+            <Stack.Screen name="ArcXP" component={ArcXPScreen} />
           </Stack.Navigator>
         </Layout>
       </NavigationContainer>

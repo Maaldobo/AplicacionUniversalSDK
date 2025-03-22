@@ -60,17 +60,17 @@ class MainApplication : Application(), ReactApplication {
         .setEnvironment("prod") // Ambiente (ej. prod, staging, dev)
        // .setNavigationEndpoint("mobile-nav") // Endpoint de navegación
         .setNavigationEndpoint("nav-mobile-app") // Endpoint de navegación
-        .setCacheSize(1024) // Tamaño máximo del caché en MB (entre 10 y 1024)
-        .setCacheTimeUntilUpdate(5) // Minutos antes de actualizar caché
-        .setPreloading(true) // Habilitar precarga de contenido
+        //.setCacheSize(1024) // Tamaño máximo del caché en MB (entre 10 y 1024)
+        //.setCacheTimeUntilUpdate(5) // Minutos antes de actualizar caché
+        //.setPreloading(true) // Habilitar precarga de contenido
         .build()
 
         ArcXPMobileSDK.initialize(
             this,
-            "yourOrg",
-            "yourSite",
-            "yourEnv",
-            "yourBaseUrl",
+            "eluniversal",              //3312
+            "eluniversal",
+            "prod",
+            "https://api.eluniversal.arcpublishing.com",
             arcxpContentConfig,
             null,
             null

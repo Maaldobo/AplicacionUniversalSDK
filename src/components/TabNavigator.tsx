@@ -13,7 +13,7 @@ const TabNavigator: React.FC = () => {
         <RNButton title="Noticias" onPress={() => navigation.navigate('News')} />
         <RNButton title="Carrusel" onPress={() => navigation.navigate('Carrousel')} />
         <RNButton title="Suscripciones" onPress={() => navigation.navigate('Suscripcion')} />
-        <RNButton title="Elecciones" onPress={() => navigation.navigate('Elections')} />
+        <RNButton title="ArcXP" onPress={() => navigation.navigate('ArcXP')} />
 
         <RNButton title="Home" onPress={() => navigation.navigate('Home')} />
         <RNButton title="Noticias" onPress={() => navigation.navigate('News')} />

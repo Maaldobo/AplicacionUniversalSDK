@@ -41,9 +41,9 @@ allprojects {
         maven {
             url "${project.rootDir}/../arcxp-libs"          //3312
         }
-        maven {
-            url "https://piano.io/maven"
-        }
+        // maven {
+        //     url "https://piano.io/maven"
+        // }
 
     }
 }
