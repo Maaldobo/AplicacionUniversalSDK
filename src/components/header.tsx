@@ -3,12 +3,12 @@ import { View, TouchableOpacity } from 'react-native';
 import RNImage from '../atoms/RNImage';
 import RNText from '../atoms/RNText';
 import headerStyles from '../styles/headerStyles';
+import { useNavigation } from '@react-navigation/native';
 
-type HeaderProps = {
-  onPressHome: () => void;
-};
 
-const Header: React.FC<HeaderProps> = ({ onPressHome }) => {
+const Header: React.FC = () => {
+  const navigation = useNavigation(); // Hook para acceder a la navegación
+
   return (
     <View style={headerStyles.header}>
       
@@ -19,9 +19,9 @@ const Header: React.FC<HeaderProps> = ({ onPressHome }) => {
         </TouchableOpacity>
       </View>
 
-      {/* Logo Central */}
+      {/* Logo Central - Al tocarlo, navega a Home */}
       <View style={headerStyles.centerContainer}>
-        <TouchableOpacity onPress={onPressHome}>
+        <TouchableOpacity onPress={() => navigation.navigate('Home')}>
           <RNImage source={require('../../assets/eluniversal.png')} style={headerStyles.logo} />
         </TouchableOpacity>
       </View>
