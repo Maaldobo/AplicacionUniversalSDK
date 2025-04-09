@@ -10,7 +10,6 @@ import CardList from '../molecules/cardList';
 
 
 
-import ArcXpContentView from '../components/ArcXpContentView';
 
 const { height } = Dimensions.get('window');
 
@@ -47,7 +46,7 @@ const HomeScreen: React.FC = () => {
     <View style={atomsStyles.container}>
      {/* <RNTextComponent style={atomsStyles.text}>Bienvenido a la página principal</RNTextComponent>
       <RNButton title="Ir a Noticias" onPress={() => navigation.navigate('News')} />  */}
-       <ArcXpContentView />
+ 
        <CardList data={data} />
     </View>
     </>
