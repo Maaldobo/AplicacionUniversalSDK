@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { TouchableOpacity, StyleSheet, Text as RNText } from 'react-native';
+import { TouchableOpacity, Text as RNText } from 'react-native';
 import styles from '../styles/atomStyles';
 
 type Props = {

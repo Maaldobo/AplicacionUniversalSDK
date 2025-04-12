@@ -8,6 +8,8 @@ import NewsScreen from './src/screens/NeswScreen';
 import CarouselScreen from './src/screens/CarouselScreen';
 import ArticleScreen from './src/screens/ArticleScreen';
 import NotaScreen from './src/screens/NotaScreen';
+import NotaScreen2 from './src/screens/NotaScreen2';
+import NotaScreen3 from './src/screens/NotaScreen3';
 
 
 
@@ -24,7 +26,8 @@ const App: React.FC = () => {
             <Stack.Screen name="Carrousel" component={CarouselScreen} />
             <Stack.Screen name="Articulo" component={ArticleScreen} />
             <Stack.Screen name="Nota" component={NotaScreen} />
-       
+            <Stack.Screen name="Nota2" component={NotaScreen2} />
+            <Stack.Screen name="Nota3" component={NotaScreen3} />
           </Stack.Navigator>
         </Layout>
       </NavigationContainer>

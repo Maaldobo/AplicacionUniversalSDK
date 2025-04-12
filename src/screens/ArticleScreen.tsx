@@ -4,7 +4,7 @@ import { View, Text, ActivityIndicator, StyleSheet, ScrollView } from 'react-nat
 import { useNavigation } from '@react-navigation/native';
 
 
-const API_URL = 'https://api.eluniversal.arcpublishing.com/content/v4/stories?website=eluniversal&_id=APX44GXM75EKLGQD4ZQCWTW3IA&published=true';
+const API_URL = 'https://api.eluniversal.arcpublishing.com/content/v4/stories?website=eluniversal&_id=IRX7DAQE6FFYLC4QK4RQTBIGYU&published=true';
 const API_TOKEN = '2J0768H5RFQFL17V24QHM3P74PBR8JNFxvsabJ324Mn6bXtOP7Wao647x1u9lzyppLgmm/R9';
 
 const ArticleScreen = () => {

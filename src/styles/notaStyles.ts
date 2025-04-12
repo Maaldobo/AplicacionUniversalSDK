@@ -3,37 +3,62 @@ import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
-    padding: 16,
-    backgroundColor: '#FFFFFF',
+    padding: 20,
   },
   title: {
+    fontSize: 20,
+    marginBottom: 10,
+  },
+  input: {
+    borderColor: '#ccc',
+    borderWidth: 1,
+    padding: 8,
+    marginBottom: 10,
+  },
+  error: {
+    color: 'red',
+    marginVertical: 10,
+  },
+  notaContainer: {
+    marginTop: 20,
+  },
+  notaTitulo: {
     fontSize: 24,
     fontWeight: 'bold',
-    marginBottom: 12,
-    color: '#333333',
+    marginBottom: 10,
   },
-  subtitle: {
+  notaSubtitulo: {
     fontSize: 18,
-    fontStyle: 'italic',
-    marginBottom: 8,
-    color: '#555555',
+    marginBottom: 10,
   },
-  author: {
+  notaFecha: {
     fontSize: 14,
-    color: '#777777',
-    marginBottom: 20,
+    color: '#555',
+    marginBottom: 10,
   },
-  paragraph: {
-    fontSize: 16,
-    lineHeight: 24,
-    marginBottom: 16,
-    color: '#444444',
-  },
-  image: {
+  notaImagen: {
     width: '100%',
     height: 200,
-    marginBottom: 16,
+    marginBottom: 10,
+  },
+  notaTexto: {
+    fontSize: 16,
+    marginBottom: 10,
+  },
+  imagenBloque: {
+    marginBottom: 10,
+    alignItems: 'center',
+  },
+  imagenIntercalada: {
+    width: '100%',
+    height: 200,
+  },
+  caption: {
+    fontSize: 12,
+    color: '#888',
+    marginTop: 5,
   },
 });
+
 
 export default styles;

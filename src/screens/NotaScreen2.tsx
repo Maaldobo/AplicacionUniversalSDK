@@ -2,12 +2,12 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, Button, ScrollView, Image, ActivityIndicator, StyleSheet } from 'react-native';
 import useFetchNota from '../hooks/useFetchNota';
-import parseNota from '../utils/parseNota';
+import parseNota from '../utils/parseNota2';
 import { NotaFormateada, BloqueNota } from '../InterfaceNews/ArcticleInterface';
 import styles from '../styles/notaStyles';
 import { useNavigation } from '@react-navigation/native';
 
-const NotaScreen = () => {
+const NotaScreen2 = () => {
   // Estado para el id de la nota a buscar y para disparar la consulta
   const [notaId, setNotaId] = useState<string>('');
   const [fetchId, setFetchId] = useState<string>('');
@@ -73,4 +73,4 @@ const NotaScreen = () => {
     </ScrollView>
   );
 };
-export default NotaScreen;
+export default NotaScreen2;

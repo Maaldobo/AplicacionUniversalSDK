@@ -14,6 +14,8 @@ const TabNavigator: React.FC = () => {
         <RNButton title="Carrusel" onPress={() => navigation.navigate('Carrousel')} />
         <RNButton title="Articulo" onPress={() => navigation.navigate('Articulo')} />
         <RNButton title="Nota" onPress={() => navigation.navigate('Nota')} />
+        <RNButton title="Nota2" onPress={() => navigation.navigate('Nota2')} />
+        <RNButton title="Nota3" onPress={() => navigation.navigate('Nota3')} />
 
       </ScrollView>
     </View>
