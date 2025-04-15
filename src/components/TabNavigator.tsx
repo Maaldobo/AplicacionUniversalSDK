@@ -12,14 +12,11 @@ const TabNavigator: React.FC = () => {
         <RNButton title="Home" onPress={() => navigation.navigate('Home')} />
         <RNButton title="Noticias" onPress={() => navigation.navigate('News')} />
         <RNButton title="Carrusel" onPress={() => navigation.navigate('Carrousel')} />
-        <RNButton title="Suscripciones" onPress={() => navigation.navigate('Suscripcion')} />
-        <RNButton title="ArcXP" onPress={() => navigation.navigate('ArcXP')} />
+        <RNButton title="Articulo" onPress={() => navigation.navigate('Articulo')} />
+        <RNButton title="Nota" onPress={() => navigation.navigate('Nota')} />
+        <RNButton title="Nota2" onPress={() => navigation.navigate('Nota2')} />
+        <RNButton title="Nota3" onPress={() => navigation.navigate('Nota3')} />
 
-        <RNButton title="Home" onPress={() => navigation.navigate('Home')} />
-        <RNButton title="Noticias" onPress={() => navigation.navigate('News')} />
-        <RNButton title="Deportes" onPress={() => navigation.navigate('Sports')} />
-        <RNButton title="De Última" onPress={() => navigation.navigate('BreakingNews')} />
-        <RNButton title="Elecciones" onPress={() => navigation.navigate('Elections')} />
       </ScrollView>
     </View>
   );

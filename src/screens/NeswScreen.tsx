@@ -8,7 +8,7 @@ import Card from '../molecules/card';
 
 const NewsScreen: React.FC = () => {
   const navigation = useNavigation();
-
+  
   return (
     <View style={atomsStyles.container}>
       {/* <RNTextComponent style={atomsStyles.text}>Página de Noticias</RNTextComponent>

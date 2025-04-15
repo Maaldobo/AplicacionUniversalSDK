@@ -29,25 +29,6 @@ dependencyResolutionManagement {
       from(files(new File(["node", "--print", "require.resolve('react-native/package.json')"].execute(null, rootDir).text.trim(), "../gradle/libs.versions.toml")))
     }
   }
-
-
-// CON MAVEN
-//  repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
-//     repositories {
-//         google()
-//         mavenCentral()
-//         // +++++MODIFICACION+++++ Añadir repositorio ArcXP con credenciales
-//         maven {
-//             url "https://maven.pkg.github.com/arcxp/arcxp-mobile-sdk-android"
-//             credentials {
-//                 username = "YOUR_GITHUB_USERNAME"        // +++++MODIFICACION+++++
-//                 password = "YOUR_GITHUB_PAT_TOKEN"      // +++++MODIFICACION+++++
-//             }
-//         }
-//     }
-
-
-  
 }
 
 apply from: new File(["node", "--print", "require.resolve('expo/package.json')"].execute(null, rootDir).text.trim(), "../scripts/autolinking.gradle");
